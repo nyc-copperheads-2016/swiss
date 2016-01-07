@@ -1,9 +1,9 @@
 class CreateUsersBookmarks < ActiveRecord::Migration
   def change
-    create_table :users_bookmarks do |t|
+    create_table :user_bookmarks do |t|
       t.references :user, null: false
-      t.referneces :bookmark, null: false
-      t.string :name
+      t.references :bookmark, null: false
+      t.string :name, null: false
 
       t.timestamps null: false
     end

@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+
+  root "bookmarks#index"
+  get 'login' => 'sessions#new'
+  get 'logout'=> 'sessions#destroy'
+
+  resources :users, only:[:new, :create, :show], shallow: true do 
+    resources :user_bookmarks, only:[:create, :new, :show, :destroy]
+    resources :categories, only:[:create, :new, :show]
+    resources :bookmarks, only:[:create, :new, :show]
+  end
+
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

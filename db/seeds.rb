@@ -10,6 +10,19 @@ u = User.create!(username: Faker::Internet.user_name, first_name: Faker::Name.fi
 
 b = Bookmark.create!(url: Faker::Internet.url)
 
-u.user_bookmarks.create!(name: "test", bookmark: b)
+c = Category.create!(name: Faker::Hipster.word)
+
+ub = b.user_bookmarks.create!(name: Faker::Hipster.word, user: u)
+
+ubc = UserBookmarkCategory.create!(category: c, user_bookmark: ub)
+
+
+# id: nil, user_bookmark_id: nil, category_id: nil,
+
+
+
+
+# ubc = ub.user_bookmark_categories.create!(category: c)
+
 
 

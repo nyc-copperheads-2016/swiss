@@ -10,8 +10,8 @@ RSpec.describe User, type: :model do
   it { should validate_uniqueness_of(:username) }
   it { should validate_length_of(:password).is_at_least(6) } 
   it { should validate_length_of(:username).is_at_least(3) } 
-  it { should have_many(:bookmarks).through{:users_bookmarks} }
-  it { should have_many(:categories).through{:users_bookmarks_categories} }
+  it { should have_many(:bookmarks).through(:users_bookmarks) }
+  it { should have_many(:categories).through(:users_bookmarks_categories) }
 
   it "is invalid without a username" do
     user = User.new(username: nil, password_digest: "password")

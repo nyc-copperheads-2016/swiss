@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :user_bookmark do
-    references ""
-referneces ""
-name "MyString"
+    association :user, factory: :user
+    association :bookmark, factory: :bookmark
+    name {Faker::Internet.domain_word}
   end
 
 end

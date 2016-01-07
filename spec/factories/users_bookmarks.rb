@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :users_bookmark do
+  factory :user_bookmark do
     references ""
 referneces ""
 name "MyString"

@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :users_bookmarks_category do
+  factory :user_bookmark_category do
     references ""
 references ""
   end

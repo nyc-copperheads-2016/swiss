@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe UsersBookmark, type: :model do
+RSpec.describe UserBookmark, type: :model do
   it { should validate_presence_of(:name)}
   it { should belong_to(:bookmark)}
   it { should belong_to(:user)}

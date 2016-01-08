@@ -1,9 +1,9 @@
-<%= form_for :session do |f| %>
+<%= form_tag login_path %>
   <ul class="no-list-style">
-    <li><%= f.label :username %></li>
-    <li><%= f.text_field :username %></li>
-    <li><%= f.label :password %></li>
-    <li><%= f.password_field :password %></li>
+    <li><%= label_tag :username %></li>
+    <li><%= text_field_tag :username %></li>
+    <li><%= label_tag :password %></li>
+    <li><%= password_field_tag :password %></li>
     <li><%= submit_tag "Log in" %>
   </ul>
-<% end %>
+

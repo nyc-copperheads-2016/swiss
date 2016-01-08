@@ -14,22 +14,13 @@ class UserBookmarksController < ApplicationController
   end
 
   def new
-    @user = current_user
-    @user_bookmark = @user.UserBookmark.new
+    @user_bookmark = UserBookmark.new
   end
 
   def create
-    # make a new bookmark, category, and user_bookmark. using current user as user id.
-    # create or find the bookmark associated with the URL found in the parameters in the form
-
-    bookmark = Bookmark.find_or_create_by(url: bookmark_params)
-    # create the new bookmark for the user with the bookmark we passed in
-    user_bookmark = current_user.user_bookmarks.new(name: user_bookmark_params, bookmark: bookmark)
-
-    if bookmark.save && user_bookmark.save
-      # take all the categories we passed in and make them each into their own tag associated with this particular user_bookmark
-      separate_categories_and_save(params[:categories], user_bookmark)
-
+    bookmark = Bookmark.find_or_create_by(url: params[:url])
+    user_bookmark = current_user.user_bookmarks.new(name: params[:user_bookmark][:name], bookmark: bookmark)
+    if user_bookmark.save
       redirect_to user_bookmark
     else
       # flash errors and send them back to fix their problems
@@ -47,8 +38,7 @@ class UserBookmarksController < ApplicationController
     bookmark = @user_bookmark.bookmark
     # logically we would want to take in all the user's category changes
     @user_bookmark.categories.clear()
-    if @user_bookmark.update_attributes(user_bookmark_params) && bookmark.update_attributes(bookmark_params)
-      separate_categories_and_save(params[:categories], user_bookmark)
+    if @user_bookmark.update_attributes(name: params[:user_bookmark][:name]) && bookmark.update_attributes(url: params[:url])
       redirect_to @user_bookmark
     else
       render :edit
@@ -56,21 +46,9 @@ class UserBookmarksController < ApplicationController
   end
 
   def destroy
+    @user_bookmark = UserBookmark.find_by(id: params[:id])
+    @user_bookmark.destroy
+    redirect_to root_path
   end
 
-  private
-  def bookmark_params
-    params.require(:user_bookmark).permit(:url)
-  end
-
-  def separate_categories_and_save(categories, user_bookmark)
-    categories.split(",").each do |category|
-      category.downcase.gsub(/,\s+/,"")
-      user_bookmark.categories.find_or_create_by(name: category)
-    end
-  end
-
-  def user_bookmark_params
-    params.require(:user_bookmark).permit(:name)
-  end
 end

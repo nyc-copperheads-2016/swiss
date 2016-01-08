@@ -63,8 +63,13 @@ GEM
       railties (>= 3.0.0)
     faker (1.6.1)
       i18n (~> 0.5)
+    fuzzily (0.3.3)
+      activerecord (>= 2.3.17)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    hpricot (0.8.6)
+    hpricot_scrub (0.3.10)
+      hpricot (>= 0.8.1)
     i18n (0.7.0)
     jbuilder (2.4.0)
       activesupport (>= 3.0.0, < 5.1)
@@ -193,6 +198,8 @@ DEPENDENCIES
   database_cleaner
   factory_girl_rails (~> 4.0)
   faker
+  fuzzily
+  hpricot_scrub
   jbuilder (~> 2.0)
   jquery-rails
   launchy

@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   root "user_bookmarks#index"
   get 'login' => 'sessions#new'
   get 'logout'=> 'sessions#destroy'
+  post 'login' => 'sessions#create'
 
-  resources :users, only:[:new, :create, :show], shallow: true do
-    resources :user_bookmarks
-    resources :categories, only:[:create, :new, :show]
-    resources :bookmarks, only:[:create, :new, :show]
-  end
+  resources :users, only:[:new, :create, :show]
+  resources :user_bookmarks
+
+
 
 
 

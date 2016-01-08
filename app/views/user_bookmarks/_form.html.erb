@@ -1,0 +1,7 @@
+<%=form_for @user_bookmark do |f|%>
+  <%=f.label "URL of site you would like to bookmark"%>
+  <%=text_field_tag "url"%>
+  <%=f.label "Name you would like to save this bookmark as"%>
+  <%=f.text_field :name%>
+  <%=f.submit%>
+<%end%>

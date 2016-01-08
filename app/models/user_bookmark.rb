@@ -7,4 +7,10 @@ class UserBookmark < ActiveRecord::Base
 
   validates_presence_of :user, :bookmark, :name
   # set name to page title if no name is specified
+  # def separate_categories_and_save(categories, user_bookmark)
+  #   categories.split(",").each do |category|
+  #     category = category.downcase.gsub(/,\s+/,"")
+  #     user_bookmark.categories.find_or_create_by(name: category)
+  #   end
+  # end
 end

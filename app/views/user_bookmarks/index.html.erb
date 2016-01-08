@@ -1,1 +1,12 @@
-<%@user_bookmarks.each do |bookmark|%>
+<div>
+  <%@user_bookmarks.each do |resource|%>
+    <%=resource.name%>
+    <%=resource.bookmark.url%>
+    <div>
+    <%resource.categories.each do |tag|%>
+      <%=tag.name%>
+    <%end%>
+    </div>
+  <%end%>
+</div>
+<!-- realistically these will be partials when we implement js in our front end-->

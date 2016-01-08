@@ -1,9 +1,8 @@
-<h1>we are in the show page</h1>
-<%@user_bookmarks.each do |resource|%>
-      <%=resource.name%>
-      <%=resource.bookmark.url%>
-      <div>
-      <%resource.categories.each do |tag|%>
-        <%=tag.name%>
-      <%end%>
+<%=@user_bookmark.name%>
+<%=@user_bookmark.bookmark.url%>
+<div>
+  <%@user_bookmark.categories.each do |tag|%>
+    <%=tag.name%>
+  <%end%>
+</div>
 <%=link_to "home", root_path%>

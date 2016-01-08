@@ -1,4 +1,5 @@
 <div>
+  <%=link_to "new", new_user_user_bookmark_path(@user)%>
   <%@user_bookmarks.each do |resource|%>
     <%=resource.name%>
     <%=resource.bookmark.url%>
@@ -6,6 +7,8 @@
     <%resource.categories.each do |tag|%>
       <%=tag.name%>
     <%end%>
+    <%=link_to "edit", edit_user_bookmark_path(resource)%>
+    <%=link_to "delete", user_bookmark_path(resource), method:("delete")%>
     </div>
   <%end%>
 </div>

@@ -1,9 +1,1 @@
-<%form_for @user_bookmark do |f|%>
-  <%=f.label "URL of site you would like to bookmark"%>
-  <%=f.text_field :url%>
-  <%=f.label "Name you would like to save this bookmark as"%>
-  <%=f.text_field :name%>
-  <%=f.label "Categories you would like to tag this Bookmark with (separated by commas)"%>
-  <%=f.text_field :categories%>
-  <%=f.submit%>
-<%end%>
+<%=render partial: "form", locals: {user_bookmark: @user_bookmark}%>

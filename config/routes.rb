@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "bookmarks#index"
+  root "user_bookmarks#index"
   get 'login' => 'sessions#new'
   get 'logout'=> 'sessions#destroy'
 

@@ -27,6 +27,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'fuzzily'
 gem 'hpricot_scrub'
+gem 'paperclip'
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem 'ancestry'

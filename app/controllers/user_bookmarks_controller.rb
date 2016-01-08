@@ -1,10 +1,11 @@
 class UserBookmarksController < ApplicationController
+  before_action :ensure_logged_in
 
   def index
     # for MVP we will automatically make the user's boomkarks only show the current user.
     # For stretch we would like the option for you to view a different user's bookmarks when creating a community
     # @user = current_user()
-    @user = User.last()
+    @user = current_user
     @user_bookmarks = @user.user_bookmarks.all
   end
 
@@ -13,8 +14,8 @@ class UserBookmarksController < ApplicationController
   end
 
   def new
-    @user = User.last()
-    @user_bookmark = UserBookmark.new()
+    @user = current_user
+    @user_bookmark = @user.UserBookmark.new
   end
 
   def create
@@ -23,7 +24,7 @@ class UserBookmarksController < ApplicationController
 
     bookmark = Bookmark.find_or_create_by(url: bookmark_params)
     # create the new bookmark for the user with the bookmark we passed in
-    user_bookmark = User.last().user_bookmarks.new(name: user_bookmark_params, bookmark: bookmark)
+    user_bookmark = current_user.user_bookmarks.new(name: user_bookmark_params, bookmark: bookmark)
 
     if bookmark.save && user_bookmark.save
       # take all the categories we passed in and make them each into their own tag associated with this particular user_bookmark

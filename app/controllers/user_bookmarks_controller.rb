@@ -14,7 +14,7 @@ class UserBookmarksController < ApplicationController
   end
 
   def new
-    @user_bookmark = UserBookmark.new
+    @user_bookmark = UserBookmark.new()
   end
 
   def create
@@ -24,6 +24,7 @@ class UserBookmarksController < ApplicationController
       redirect_to user_bookmarks_path
     else
       # flash errors and send them back to fix their problems
+      flash[:notice] = "Invalid Parameters, Please Try Again"
       render 'new'
     end
   end

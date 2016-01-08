@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'logout'=> 'sessions#destroy'
 
   resources :users, only:[:new, :create, :show], shallow: true do
-    resources :user_bookmarks, only:[:index, :new, :create, :show, :edit, :destroy]
+    resources :user_bookmarks, only:[:index, :new, :create, :show, :update, :destroy]
     resources :categories, only:[:create, :new, :show]
     resources :bookmarks, only:[:create, :new, :show]
   end

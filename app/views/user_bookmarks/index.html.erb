@@ -1,8 +1,7 @@
   <div>
-    <%=link_to "new", new_user_bookmark_path%>
+  <p><%=link_to "new", new_user_bookmark_path%></p>
     <%@user_bookmarks.each do |resource|%>
-      <%=resource.name%>
-      <%=resource.bookmark.url%>
+    <p><%=link_to resource.name, resource.bookmark.url%></p>
       <div>
       <%resource.categories.each do |tag|%>
         <%=tag.name%>

@@ -9,4 +9,7 @@ class User < ActiveRecord::Base
   validates :username, length: { minimum: 3 }
   validates :password, length: { minimum: 6 }
   validates :password, confirmation: true
+
+  has_attached_file :bookmark_file
+  validates_attachment_content_type :bookmark_file, content_type:"text/*"
 end

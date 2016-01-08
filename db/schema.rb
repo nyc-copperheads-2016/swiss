@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20160109195808) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,12 +67,16 @@ ActiveRecord::Schema.define(version: 20160109195808) do
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
-    t.string   "first_name",      null: false
-    t.string   "last_name",       null: false
-    t.string   "email",           null: false
-    t.string   "password_digest", null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "first_name",                 null: false
+    t.string   "last_name",                  null: false
+    t.string   "email",                      null: false
+    t.string   "password_digest",            null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "bookmark_file_file_name"
+    t.string   "bookmark_file_content_type"
+    t.integer  "bookmark_file_file_size"
+    t.datetime "bookmark_file_updated_at"
   end
 
 end

@@ -7,7 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% if defined?(@user.errors) %>
+
+ <nav>
+    <ul>
+      <center><h1><%= link_to "Welcome To Swiss!", login_path %></h1></center>
+        <% if logged_in? %>
+        <li><%= link_to 'Log out', logout_path %></li>
+        <% else %>
+        <li><%= link_to 'Join', new_user_path %></li>
+        <li><%= link_to 'Log In', login_path %></li>
+        <% end %>
+    </ul>
+  </nav>
+  <% if defined?(@user.errors) %>
   <% @user.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>

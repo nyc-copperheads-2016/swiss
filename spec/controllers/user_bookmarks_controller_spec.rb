@@ -13,14 +13,16 @@ RSpec.describe UserBookmarksController, type: :controller do
       expect(response).to render_template(:new)
     end
   end
-  context "create" do
-    it "redirects to root path with correct parameters" do
-      post :create, url: Faker::Internet.url, user_bookmark: {name: Faker::Book.title}
-      expect(response).to redirect_to user_bookmarks_path
-    end
-    it "redirects back to form with non-existant parameters" do
-      post :create, url: Faker::Internet.url, user_bookmark: {name: Faker::Book.title}
-      expect(response).to redirect_to new_user_bookmark_path
-    end
-  end
+  # context "create" do
+  #   it "redirects to root path with correct parameters" do
+  #     post :create, user_bookmark: {name: Faker::Book.title}, bookmark_attributes: {url: Faker::Internet.url}
+  #     expect(response).to redirect_to user_bookmarks_path
+  #   end
+  # end
+  # context "update" do
+  #   it "redirect_to show path for the recently updated user_bookmark" do
+  #     put :update, user_bookmark: {name: Faker::Book.title}, bookmark_attributes: {url: Faker::Internet.url}
+  #     expect(response).redirect_to user_bookmark_path
+  #   end
+  # end
 end

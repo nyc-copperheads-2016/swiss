@@ -1,0 +1,9 @@
+<%= form_for :session do |f| %>
+  <ul class="no-list-style">
+    <li><%= f.label :username %></li>
+    <li><%= f.text_field :username %></li>
+    <li><%= f.label :password %></li>
+    <li><%= f.password_field :password %></li>
+    <li><%= submit_tag "Log in" %>
+  </ul>
+<% end %>

@@ -1,5 +1,5 @@
   <div>
-    <%=link_to "new", user_bookmarks_path%>
+    <%=link_to "new", new_user_bookmark_path%>
     <%@user_bookmarks.each do |resource|%>
       <%=resource.name%>
       <%=resource.bookmark.url%>

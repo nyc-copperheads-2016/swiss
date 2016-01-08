@@ -9,6 +9,9 @@ James Kirkpatrick
 
 Bruno Zatta
 
+### Timeline
+![alt text](imgs/timeline-pre-mvp.jpeg)
+
 ### Trello
 
 

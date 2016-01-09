@@ -13,7 +13,12 @@ class UserBookmarksController < ApplicationController
     @user_bookmark = UserBookmark.find_by(id: params[:id])
   end
 
+  def chrome
+    byebug
+  end
+
   def new
+
     @user_bookmark = UserBookmark.new
   end
 

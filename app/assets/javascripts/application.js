@@ -17,11 +17,6 @@
 
 $(document).ready(function() {
 
-  $('#search-field').on("click", function(event) {
-    event.preventDefault();
-    console.log($(event.target).serialize());
-  });
-
   $('#search-field').keyup(function(event) {
     $.ajax({
       method: "GET",

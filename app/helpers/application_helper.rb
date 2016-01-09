@@ -2,7 +2,7 @@ module ApplicationHelper
 
   def self.search(results, query)
     found_records = []
-    results.each do |bookmark|
+    results.collect do |bookmark|
       if bookmark.content.include?(query.downcase)
         found_records << bookmark
       end

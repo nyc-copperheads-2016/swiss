@@ -1,4 +1,15 @@
 module ApplicationHelper
+
+  def self.search(results, query)
+    found_records = []
+    results.each do |bookmark|
+      if bookmark.content.include?(query.downcase)
+        found_records << bookmark
+      end
+    end
+    found_records
+  end
+
   def self.clean(html_string)
     remove_all_white_space_between_tags(condense_whitespace(html_string)).strip
   end
@@ -13,4 +24,5 @@ module ApplicationHelper
     def self.condense_whitespace(html_string)
       html_string.gsub(/\s+/, ' ')
     end
+
 end

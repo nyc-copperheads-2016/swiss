@@ -16,11 +16,10 @@ class Bookmark < ActiveRecord::Base
   end
 
   def content
-    ApplicationHelper.clean(raw_content.text)
+    ApplicationHelper.clean(raw_content.text.downcase)
   end
 
   def content_changed?
     url_changed?
   end
 end
-

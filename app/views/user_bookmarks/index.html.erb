@@ -1,9 +1,11 @@
 <% if defined? @search_results %>
-  <div>
+  <div id="search-results">
     <h1>Test of fuzzy search</h1>
-    <% @search_results.each do |bookmark| %>
-      <%= bookmark.url %>
-    <% end %>
+    <ul>
+      <% @search_results.each do |bookmark| %>
+        <li><%= bookmark.url %></li>
+      <% end %>
+    </ul>
   </div>
 <% end %>
 

@@ -29,6 +29,7 @@ gem 'fuzzily'
 gem 'hpricot_scrub'
 # Use Unicorn as the app server
 # gem 'unicorn'
+gem 'ancestry'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

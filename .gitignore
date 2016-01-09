@@ -17,3 +17,6 @@
 /tmp
 /coverage/*
 .byebug*
+
+# Ignore uploaded files
+/public/system/*

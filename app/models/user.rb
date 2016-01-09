@@ -11,5 +11,17 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true
 
   has_attached_file :bookmark_file
-  validates_attachment_content_type :bookmark_file, content_type:"text/*"
+  validates_attachment_content_type :bookmark_file, content_type:["text/html"]
+
+
+  after_save :spit_out_bookmarks
+  
+  private
+
+  def spit_out_bookmarks
+    url = self.bookmark_file.url.gsub(/\?.+/, '')
+    fname = File.join(Rails.root, 'public', url)
+    file = open(fname)
+    puts file.read
+  end
 end

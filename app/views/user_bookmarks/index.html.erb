@@ -1,3 +1,15 @@
+<% if defined? @search_results %>
+  <div id="search-results">
+    <h1>Test of fuzzy search</h1>
+    <ul>
+      <% @search_results.each do |bookmark| %>
+        <li><%= bookmark.url %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
   <div>
   <p><%=link_to "new", new_user_bookmark_path%></p>
     <%@user_bookmarks.each do |resource|%>

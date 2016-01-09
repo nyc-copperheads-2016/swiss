@@ -12,4 +12,20 @@
 //
 //= require jquery
 //= require jquery_ujs
+
 //= require_tree .
+
+$(document).ready(function() {
+
+  $('#search-field').keyup(function(event) {
+    $.ajax({
+      method: "GET",
+      url: "/",
+      data: {search: $(event.target).val()}
+    }).done(function(result) {
+      var something = $(result).filter('#search-results').html();
+      $('#search-results').html(something);
+    });
+  });
+
+});

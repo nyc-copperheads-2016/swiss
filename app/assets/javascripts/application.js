@@ -17,20 +17,20 @@
 
 $(document).ready(function() {
 
-  // $(function(){
-  //   var t = null;
-  //   $("#fuzzy").keyup(function(){
-  //       if (t) {
-  //           clearTimeout(t);
+  $('#search-field').on("click", function(event) {
+    event.preventDefault();
+    console.log($(event.target).serialize());
+  });
 
-  //       t = setTimeout("filter()", 200);
-  //   });
-  // }).then(function() {
-  //   $( "#fuzzy" ).innerhtml
-  // })
+  $('#search-field').keyup(function(event) {
+    $.ajax({
+      method: "GET",
+      url: "/",
+      data: {search: $(event.target).val()}
+    }).done(function(result) {
+      var something = $(result).filter('#search-results').html();
+      $('#search-results').html(something);
+    });
+  });
+
 });
-
-
-// take inner html of form
-// post to controller method to sort by inner html
-// repeat

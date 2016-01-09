@@ -2,8 +2,11 @@ class UserBookmarksController < ApplicationController
   before_action :ensure_logged_in
 
   def index
-    @user = current_user
-    @user_bookmarks = @user.user_bookmarks.all
+    if params[:search]
+      @search_results = current_user.bookmarks.find_by_fuzzy_content(params[:search])
+    end
+      @user = current_user
+      @user_bookmarks = @user.user_bookmarks.all
   end
 
   def show

@@ -25,6 +25,13 @@
     <% end %>
 <% end %>
 
+<%= form_tag(user_bookmarks_path, :method => "get") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+
+
 <%= yield %>
 
 </body>

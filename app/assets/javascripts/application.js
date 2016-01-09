@@ -12,4 +12,25 @@
 //
 //= require jquery
 //= require jquery_ujs
+
 //= require_tree .
+
+$(document).ready(function() {
+
+  // $(function(){
+  //   var t = null;
+  //   $("#fuzzy").keyup(function(){
+  //       if (t) {
+  //           clearTimeout(t);
+
+  //       t = setTimeout("filter()", 200);
+  //   });
+  // }).then(function() {
+  //   $( "#fuzzy" ).innerhtml
+  // })
+});
+
+
+// take inner html of form
+// post to controller method to sort by inner html
+// repeat

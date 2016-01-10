@@ -1,0 +1,6 @@
+<form method="POST", id="bookmark_form" action="/user_bookmarks" >
+<input name="authenticity_token" value="<%= form_authenticity_token %>", type="hidden">
+<input type="text", id="name", name="user_bookmark[name]", value = "" >
+<input type="hidden", id="url", name="user_bookmark[url]", value = "" >
+
+</form>

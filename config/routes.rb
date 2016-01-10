@@ -7,7 +7,17 @@ Rails.application.routes.draw do
 
   resources :users, only:[:new, :create, :show]
   resources :user_bookmarks
+  get 'mobile' => 'user_bookmarks#chrome'
+
   resources :folders
+
+  get 'mobile' => 'user_bookmarks#chrome'
+
+  get 'chrome' => 'user_bookmarks#chrome'
+  get 'loggedin' => 'sessions#chrome_logged_in'
+  get 'mlogin' => 'sessions#mlogin'
+
+
 
 
 

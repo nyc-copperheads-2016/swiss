@@ -1,3 +1,35 @@
+
+function loggedIn() {
+$.get("http://localhost:3000/loggedin", function(data) {
+   if (data) {
+     sessionStorage.loggedIn = true ;
+     console.log("User is logged in");
+     $.get("http://localhost:3000/chrome", function(form){
+        chrome.tabs.query({'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT},
+        function(tabs){
+          url = tabs[0].url;
+          $('#url').val(url);
+        });
+        chrome.tabs.getSelected(null,function(tab) { // null defaults to current window
+            title = tab.title;
+            $('#name').val(title);
+          });
+       $("body").html(form);
+    });
+  }
+   else {
+    console.log("hi");
+     sessionStorage.clear();
+     $.get("http://localhost:3000/mlogin", function(log) {
+      $("body").html(log);
+     });
+   }
+ });
+} 
+
+$(document).ready(function(){
+loggedIn();
+})
 // // Copyright (c) 2014 The Chromium Authors. All rights reserved.
 // // Use of this source code is governed by a BSD-style license that can be
 // // found in the LICENSE file.
@@ -15,24 +47,6 @@
 //     active: true,
 //     currentWindow: true
 //   };
-var url = "";
-var title = "";
-
-chrome.tabs.query({'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT},
-   function(tabs){
-      url = tabs[0].url;
-      console.log(url)
-   }
-);
-
-chrome.tabs.getSelected(null,function(tab) { // null defaults to current window
-  title = tab.title;
-  console.log(title)
-});
-
-var bookmark = {bookmark: {url: url, name: title}};
-return bookmark
-
 //   chrome.tabs.query(queryInfo, function(tabs) {
 //     // chrome.tabs.query invokes the callback with a list of tabs that match the
 //     // query. When the popup is opened, there is certainly a window and at least

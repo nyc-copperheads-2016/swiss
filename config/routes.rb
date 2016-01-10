@@ -12,6 +12,11 @@ Rails.application.routes.draw do
 
   get 'mobile' => 'user_bookmarks#chrome'
 
+  get 'chrome' => 'user_bookmarks#chrome'
+  get 'loggedin' => 'sessions#chrome_logged_in'
+  get 'mlogin' => 'sessions#mlogin'
+
+
 
 
 

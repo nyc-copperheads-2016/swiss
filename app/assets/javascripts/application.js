@@ -18,29 +18,37 @@
 
 $(document).ready(function() {
 
-var typingTimer;
-var doneTypingInterval = 500;
+  var typingTimer;
+  var doneTypingInterval = 500;
 
-$('#search-field').on('keyup', function () {
-  clearTimeout(typingTimer);
-  typingTimer = setTimeout(doneTyping, doneTypingInterval);
-});
-
-$('#search-field').on('keydown', function () {
-  clearTimeout(typingTimer);
-});
-
-function doneTyping () {
-  $.ajax({
-    method: "GET",
-    url: "/search",
-    data: {search: $('#search-field').val()}
-  }).done(function(result) {
-    var something = $(result).filter('#search-results').html();
-    $('#search-results').html(something);
+  $('#search-field').on('keyup', function () {
+    clearTimeout(typingTimer);
+    typingTimer = setTimeout(doneTyping, doneTypingInterval);
   });
-}
 
-doneTyping();
+  $('#search-field').on('keydown', function () {
+    clearTimeout(typingTimer);
+  });
+
+  function doneTyping () {
+    $.ajax({
+      method: "GET",
+      url: "/search",
+      data: {search: $('#search-field').val()}
+    }).done(function(result) {
+      var something = $(result).filter('#search-results').html();
+      $('#search-results').html(something);
+
+      $("*#search-result-link").each(function() {
+        $(this).on("click", function(event) {
+          event.preventDefault();
+          var $link = $(event.target).attr('href');
+          $('#preview-frame').html('<iframe width="100%" height="500" src="' + $link + '"></iframe>');
+        });
+      });
+    });
+  }
+
+  doneTyping();
 
 });

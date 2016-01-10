@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "user_bookmarks#index"
+  root 'search#search'
   get 'login' => 'sessions#new'
   get 'logout'=> 'sessions#destroy'
   post 'login' => 'sessions#create'
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
 
 
-  get 'search' => 'search#search'
+  # get 'search' => 'search#search'
 
 
 

@@ -1,4 +1,5 @@
 class UserBookmark < ActiveRecord::Base
+
   belongs_to :user
   belongs_to :bookmark
 
@@ -15,4 +16,5 @@ class UserBookmark < ActiveRecord::Base
   #     user_bookmark.categories.find_or_create_by(name: category)
   #   end
   # end
+
 end

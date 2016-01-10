@@ -36,6 +36,7 @@ $(document).ready(function() {
       url: "/",
       data: {search: $('#search-field').val()}
     }).done(function(result) {
+      console.log(result)
       var something = $(result).filter('#search-results').html();
       $('#search-results').html(something);
 

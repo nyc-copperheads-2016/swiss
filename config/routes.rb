@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :users, only:[:new, :create, :show]
   resources :user_bookmarks
+  get 'mobile' => 'user_bookmarks#chrome'
 
   resources :folders
 

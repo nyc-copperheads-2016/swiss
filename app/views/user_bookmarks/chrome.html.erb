@@ -1,1 +1,7 @@
-<%=render partial: "mobile", locals: {user_bookmark: @user_bookmark}%>
+<% if logged_in? %>
+          <li><%= link_to 'Log out', logout_path %></li>
+        <% else %>
+          <li><%= link_to 'Join', new_user_path %></li>
+          <li><%= link_to 'Log In', login_path %></li>
+        <% end %>
+<%=render partial: "mobile",locals: {user_bookmark: @user_bookmark}%>

@@ -1,6 +1,14 @@
-<!-- # <%=form_for @user_bookmark do |f|%>
-# <%= text_field :name, value => "" %>
-# <%= f.hidden_field_tag "url", :value =>  "" %>
-# <% end %> -->
 
-hi
+
+
+<form method="POST", id="bookmark_form" action="/user_bookmarks" >
+<input name="authenticity_token" value="<%= form_authenticity_token %>", type="hidden">
+<input type="text", id="name", name="user_bookmark[name]", value = "" >
+<input type="hidden", id="url", name="user_bookmark[url]", value = "" >
+
+</form>
+
+
+
+
+HELLO FROM MOBILE PARITAL

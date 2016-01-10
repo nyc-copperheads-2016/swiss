@@ -1,9 +1,9 @@
 <%= form_tag login_path %>
   <ul class="no-list-style">
-    <li><%= label_tag :username %></li>
-    <li><%= text_field_tag :username %></li>
-    <li><%= label_tag :password %></li>
-    <li><%= password_field_tag :password %></li>
+    <li><%= label_tag(:username, nil, class: "form-field") %></li>
+    <li><%= text_field_tag(:username, nil, class: "form-field") %></li>
+    <li><%= label_tag(:password, nil, class: "form-field") %></li>
+    <li><%= password_field_tag(:password, nil, class: "form-field") %></li>
     <li><%= submit_tag "Log in" %>
   </ul>
 

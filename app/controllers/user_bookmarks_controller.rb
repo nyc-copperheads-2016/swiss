@@ -30,6 +30,7 @@ class UserBookmarksController < ApplicationController
     if @user_bookmark.save!
       bookmark = Bookmark.find_or_create_by(url: params[:url])
       user_bookmark = current_user.user_bookmarks.new(name: params[:user_bookmark][:name], bookmark: bookmark)
+    end
     if user_bookmark.save
       redirect_to user_bookmarks_path
     else

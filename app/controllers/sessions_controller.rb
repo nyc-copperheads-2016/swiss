@@ -5,6 +5,14 @@ class SessionsController < ApplicationController
   def new
   end
 
+  def mlogin
+    render layout: false
+  end
+
+  def chrome_logged_in
+    render :json => current_user
+  end
+
   def create
     user = User.find_by(username: params[:username])
     if user && user.authenticate(params[:password])

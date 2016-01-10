@@ -51,8 +51,9 @@ html, body {
 
 .form-field {
   width: 80%;
-  font-size: 1.25rem;
+  font-size: 1rem;
   margin: .5rem;
+  text-align: center;
 }
 
 .form-body-field {

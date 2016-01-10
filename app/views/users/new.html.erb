@@ -1,19 +1,5 @@
-<%= form_for @user do |f| %>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  <p></p>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-  <%= f.label :bookmark_file %>
-  <%= f.file_field :bookmark_file %>
-  <%= f.submit 'Submit' %>
-
-<% end %>
+<div class="static-width">
+  <div class="col-4 col-offset-4 center">
+    <%= render 'new_form' %>
+  </div>
+</div>

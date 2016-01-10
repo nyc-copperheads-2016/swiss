@@ -15,17 +15,32 @@
 
 //= require_tree .
 
+
 $(document).ready(function() {
 
-  $('#search-field').keyup(function(event) {
-    $.ajax({
-      method: "GET",
-      url: "/",
-      data: {search: $(event.target).val()}
-    }).done(function(result) {
-      var something = $(result).filter('#search-results').html();
-      $('#search-results').html(something);
-    });
+var typingTimer;
+var doneTypingInterval = 500;
+
+$('#search-field').on('keyup', function () {
+  clearTimeout(typingTimer);
+  typingTimer = setTimeout(doneTyping, doneTypingInterval);
+});
+
+$('#search-field').on('keydown', function () {
+  clearTimeout(typingTimer);
+});
+
+function doneTyping () {
+  $.ajax({
+    method: "GET",
+    url: "/search",
+    data: {search: $('#search-field').val()}
+  }).done(function(result) {
+    var something = $(result).filter('#search-results').html();
+    $('#search-results').html(something);
   });
+}
+
+doneTyping();
 
 });

@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="static-width">
+    <div class="col-4 col-offset-4 center">
+      <%= render 'form' %>
+    </div>
+  </div>
+</div>
+
+<% if defined? @search_results %>
+  <div id="search-results" class="row col-8 col-offset-2 search-results">
+    <% @search_results.each do |bookmark| %>
+      <div class="col-3">
+        <%= current_user.user_bookmarks.find_by(bookmark: bookmark).name %>
+      </div>
+      <div class="col-8">
+        <%= bookmark.url %>
+      </div>
+      <div class="col-1">
+        <%link_to "preview", '#'
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+
+<div class="row">
+  <div class="static-width">
+    <div class="col-10 col-offset-1 center preview-frame">
+      <iframe width="1024" height="500" src=<%></iframe>
+    </div>
+  </div>
+</div>

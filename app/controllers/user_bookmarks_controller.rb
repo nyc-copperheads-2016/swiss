@@ -2,14 +2,10 @@ class UserBookmarksController < ApplicationController
   before_action :ensure_logged_in
 
   def index
-    if params[:search] != ""
-      results = Bookmark.find_by_fuzzy_content(params[:search], limit: 10)
-      @search_results = ApplicationHelper.search(results, params[:search])
-    end
       @user = current_user
       @user_bookmarks = @user.user_bookmarks.all
   end
-  
+
   def show
     @user_bookmark = UserBookmark.find_by(id: params[:id])
   end

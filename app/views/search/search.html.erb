@@ -13,10 +13,10 @@
         <%= current_user.user_bookmarks.find_by(bookmark: bookmark).name %>
       </div>
       <div class="col-8">
-        <%= bookmark.url %>
+        <%= link_to bookmark.url, bookmark.url %>
       </div>
       <div class="col-1">
-        <%link_to "preview", '#'
+        <%= link_to "preview", bookmark.url, id: "search-result-link" %>
       </div>
     <% end %>
   </div>
@@ -24,9 +24,8 @@
 
 
 <div class="row">
-  <div class="static-width">
-    <div class="col-10 col-offset-1 center preview-frame">
-      <iframe width="1024" height="500" src=<%></iframe>
+  <div class="static-width center">
+    <div id="preview-frame" class="col-10 col-offset-1 center preview-frame">
     </div>
   </div>
 </div>

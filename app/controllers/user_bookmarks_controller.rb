@@ -3,7 +3,7 @@ class UserBookmarksController < ApplicationController
 
   def index
       @user = current_user
-      @user_bookmarks = @user.user_bookmarks.all
+      @user_bookmarks = @user.user_bookmarks
   end
 
   def show

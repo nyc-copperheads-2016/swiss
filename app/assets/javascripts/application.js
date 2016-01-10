@@ -19,7 +19,7 @@
 $(document).ready(function() {
 
   var typingTimer;
-  var doneTypingInterval = 500;
+  var doneTypingInterval = 250;
 
   $('#search-field').on('keyup', function () {
     clearTimeout(typingTimer);

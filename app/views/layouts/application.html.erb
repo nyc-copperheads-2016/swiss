@@ -1,37 +1,56 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Swiss</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Swiss</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
- <nav>
-    <ul>
-      <center><h1><%= link_to "Welcome To Swiss!", root_path %></h1></center>
-        <% if logged_in? %>
-        <li><%= link_to 'Log out', logout_path %></li>
-        <% else %>
-        <li><%= link_to 'Join', new_user_path %></li>
-        <li><%= link_to 'Log In', login_path %></li>
-        <% end %>
-    </ul>
-  </nav>
-  <% if defined?(@user.errors) %>
-  <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+    <div class="row">
+      <div class="col-12">
+        <div class="static-width">
+          <div class="col-10 col-offset-1 right">
+              <nav>
+                <ul class="no-list-style">
+                  <% if logged_in? %>
+                    <li class="inline"><%= link_to 'Log out', logout_path, class: "link" %></li>
+                  <% else %>
+                    <li class="inline"><%= link_to 'Join', new_user_path, class: "link" %></li>
+                    <li class="inline"><%= link_to 'Log In', login_path, class: "link" %></li>
+                  <% end %>
+                </ul>
+              </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="static-width">
+          <div class="col-4 col-offset-4 center">
+            <h1><%= link_to "SWISS", root_path, class: "link" %></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <% if defined?(@user.errors) %>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
     <% end %>
-<% end %>
 
-<%= form_tag(user_bookmarks_path, :method => "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search", id: "search-field" %>
-<% end %>
-
+    <%= form_tag(user_bookmarks_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search", id: "search-field" %>
+    <% end %>
 
 
-<%= yield %>
 
-</body>
+    <%= yield %>
+
+  </body>
 </html>

@@ -7,13 +7,23 @@
 </div>
 
 <% if defined? @search_results %>
-  <div id="search-results" class="col-8 col-offset-2 search-results">
-    <ul class="no-list-style">
-      <% @search_results.each do |bookmark| %>
-        <li><%= bookmark.url %></li>
-      <% end %>
-    </ul>
+  <div id="search-results" class="row col-8 col-offset-2 search-results">
+    <% @search_results.each do |bookmark| %>
+      <div class="col-4">
+        <%= current_user.user_bookmarks.find_by(bookmark: bookmark).name %>
+      </div>
+      <div class="col-8">
+        <%= bookmark.url %>
+      </div>
+    <% end %>
   </div>
 <% end %>
 
 
+<div class="row">
+  <div class="static-width">
+    <div class="col-10 col-offset-1 center preview-frame">
+
+    </div>
+  </div>
+</div>

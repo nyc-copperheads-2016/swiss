@@ -15,7 +15,6 @@ class Bookmark < ActiveRecord::Base
 
   after_save :set_content
   after_find :set_content
-  # fuzzily_searchable :content
 
   def raw_content
     Nokogiri::HTML(open("#{self.url}"))
@@ -24,10 +23,6 @@ class Bookmark < ActiveRecord::Base
   def set_content
     self.content = ApplicationHelper.clean(raw_content.text.downcase)
   end
-
-  # def content_changed?
-  #   url_changed?
-  # end
 
   def self.search(query)
     __elasticsearch__.search(

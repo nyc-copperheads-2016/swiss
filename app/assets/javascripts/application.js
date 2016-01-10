@@ -33,7 +33,7 @@ $('#search-field').on('keydown', function () {
 function doneTyping () {
   $.ajax({
     method: "GET",
-    url: "/",
+    url: "/search",
     data: {search: $('#search-field').val()}
   }).done(function(result) {
     var something = $(result).filter('#search-results').html();

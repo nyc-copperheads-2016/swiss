@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="static-width">
+    <div class="col-4 col-offset-4 center">
+      <%= render 'form' %>
+    </div>
+  </div>
+</div>
+
+<% if defined? @search_results %>
+  <div id="search-results" class="col-8 col-offset-2 search-results">
+    <ul class="no-list-style">
+      <% @search_results.each do |bookmark| %>
+        <li><%= bookmark.url %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+

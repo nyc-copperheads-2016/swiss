@@ -14,3 +14,105 @@
  *= require_tree .
  *= require_self
  */
+
+/********************
+mobile-first
+********************/
+*{
+  box-sizing: border-box;
+  /*border: 1px solid #000;*/
+}
+
+[class*="col-"] {
+  width: 100%;
+}
+
+.row {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+}
+
+.main-header {
+  padding: 1rem 0;
+  background: #fff;
+}
+
+.nav-tab {
+  background: #000;
+  font-size: 3rem;
+  margin: 1rem 0;
+  color: #fff;
+}
+
+.main-content {
+  margin-top: 1rem;
+}
+
+.form-field {
+  width: 100%;
+  height: 2rem;
+}
+
+.form-body-field {
+  width: 100%;
+  height: 25rem;
+  border: 1px solid #232323;
+}
+
+.logout {
+  margin: 2rem 0;
+}
+
+/********************
+desktop
+********************/
+@media only screen and (min-device-width: 730px) {
+
+  [class*="col-"] {
+  float: left;
+  }
+/*column widths*/
+  .col-_5 {width: 4.16%;}
+  .col-1 {width: 8.33%}
+  .col-1_5 {width: 12.49%;}
+  .col-2 {width:16.66%;}
+  .col-3 {width:25%;}
+  .col-4 {width:33.33%;}
+  .col-5 {width:41.66%;}
+  .col-6 {width:50%;}
+  .col-7 {width:58.33%;}
+  .col-8 {width:66.66%;}
+  .col-9 {width:75%;}
+  .col-10 {width:83.33%;}
+  .col-11 {width:91.66%;}
+  .col-12 {width:100%;}
+
+/*offset columns*/
+  .col-offset-_5 {margin-left: 4.16%;}
+  .col-offset-1 {margin-left: 8.33%}
+  .col-offset-2 {margin-left: 16.66%}
+  .col-offset-3 {margin-left: 25%}
+  .col-offset-4 {margin-left: 33.3%}
+  .col-offset-5 {margin-left:41.66%;}
+  .col-offset-6 {margin-left: 50%}
+  .col-offset-7 {margin-left: 58.33%}
+  .col-offset-8 {margin-left: 66.66%}
+  .col-offset-9 {margin-left: 75%}
+  .col-offset-10 {margin-left: 83.33%}
+  .col-offset-11 {margin-left: 91.66%}
+
+  .nav-tab {
+    background: #fff;
+    font-size: 1rem;
+    margin: 1rem 0;
+    color: #000;
+  }
+}

@@ -39,9 +39,19 @@
 
 
     <% if defined?(@user.errors) %>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+      <div class="row">
+        <div class="col-12">
+          <div class="static-width">
+            <div class="col-4 col-offset-4 center">
+              <ul class="no-list-style">
+                <% @user.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     <% end %>
 
     <%= form_tag(user_bookmarks_path, :method => "get", id: "search-form") do %>

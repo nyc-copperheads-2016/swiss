@@ -60,6 +60,19 @@ GEM
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
     docile (1.1.5)
+    elasticsearch (1.0.15)
+      elasticsearch-api (= 1.0.15)
+      elasticsearch-transport (= 1.0.15)
+    elasticsearch-api (1.0.15)
+      multi_json
+    elasticsearch-model (0.1.8)
+      activesupport (> 3)
+      elasticsearch (> 0.4)
+      hashie
+    elasticsearch-rails (0.1.8)
+    elasticsearch-transport (1.0.15)
+      faraday
+      multi_json
     erubis (2.7.0)
     execjs (2.6.0)
     factory_girl (4.5.0)
@@ -69,10 +82,13 @@ GEM
       railties (>= 3.0.0)
     faker (1.6.1)
       i18n (~> 0.5)
+    faraday (0.9.2)
+      multipart-post (>= 1.2, < 3)
     fuzzily (0.3.3)
       activerecord (>= 2.3.17)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    hashie (3.4.3)
     hpricot (0.8.6)
     hpricot_scrub (0.3.10)
       hpricot (>= 0.8.1)
@@ -96,6 +112,7 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.8.3)
     multi_json (1.11.2)
+    multipart-post (2.0.0)
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
     paperclip (4.3.2)
@@ -210,6 +227,8 @@ DEPENDENCIES
   byebug
   capybara
   database_cleaner
+  elasticsearch-model
+  elasticsearch-rails
   factory_girl_rails (~> 4.0)
   faker
   fuzzily

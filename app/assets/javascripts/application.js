@@ -19,7 +19,7 @@
 $(document).ready(function() {
 
   var typingTimer;
-  var doneTypingInterval = 500;
+  var doneTypingInterval = 0;
 
   $('#search-field').on('keyup', function () {
     clearTimeout(typingTimer);
@@ -34,7 +34,7 @@ $(document).ready(function() {
     $.ajax({
       method: "GET",
       url: "/",
-      data: {search: $('#search-field').val()}
+      data: {q: $('#search-field').val()}
     }).done(function(result) {
       var something = $(result).filter('#search-results').html();
       $('#search-results').html(something);

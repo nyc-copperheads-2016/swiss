@@ -1,14 +1,21 @@
-<div>
-  <p><%=link_to "new", new_user_bookmark_path%></p>
-    <%@user_bookmarks.each do |resource|%>
-    <p><%=link_to resource.name, resource.bookmark.url%></p>
-      <div>
-      <%resource.categories.each do |tag|%>
-        <%=tag.name%>
-      <%end%>
-      <%=link_to "edit", edit_user_bookmark_path(resource)%>
-      <%=link_to "delete", user_bookmark_path(resource), method:"delete"%>
-      </div>
-    <%end%>
+<div class="static-width">
+  <div class="row">
+    <div class="col-10 col-offset-1">
+      <%=link_to "new", new_user_bookmark_path%>
+      <ul class="no-list-style">
+        <%@user_bookmarks.each do |resource|%>
+          <div class="row">
+            <li class="inline"><%=link_to resource.name, resource.bookmark.url%></li>
+              <ul>
+                <%resource.categories.each do |tag|%>
+                  <li><%=tag.name%></li>
+                <%end%>
+              </ul>
+            <li class="inline"><%=link_to "edit", edit_user_bookmark_path(resource)%></li>
+            <li class="inline"><%=link_to "delete", user_bookmark_path(resource), method:"delete"%></li>
+          </div>
+        <%end%>
+      </ul>
+    </div>
   </div>
-<!-- realistically these will be partials when we implement js in our front end-->
+</div>

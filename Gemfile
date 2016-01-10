@@ -29,6 +29,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'fuzzily'
 gem 'hpricot_scrub'
 gem 'paperclip'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem 'ancestry'

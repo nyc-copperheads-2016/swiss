@@ -8,4 +8,7 @@ class SearchController < ApplicationController
     end
   end
 
+  def show
+    @bookmark = UserBookmark.find_by(id: params[:id])
+  end
 end

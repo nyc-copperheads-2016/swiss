@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
 
 
   after_save :spit_out_bookmarks
-  
+
   private
 
   def spit_out_bookmarks
@@ -23,12 +23,34 @@ class User < ActiveRecord::Base
 
 
 
+    # bookmarks.xpath('//dt/a').each do |node|
+    #   bookmark_url = node.attr('href')
+    #   bookmark = Bookmark.find_or_create_by(url: bookmark_url)
+    # end
+
     bookmarks.xpath('//dt/a').each do |node|
       bookmark_url = node.attr('href')
       bookmark = Bookmark.find_or_create_by(url: bookmark_url)
+      conditions = {  name: node.text,
+                      bookmark: bookmark,
+                      user: self }
+      UserBookmark.where(conditions).first_or_create
     end
 
-      
+    unable_to_save = {}
+    bookmarks.xpath('//dt/a').each do |node|
+      bookmark_url = node.attr('href')
+      bookmark = Bookmark.find_or_initialize_by(url: bookmark_url)
+      if bookmark.save
+        conditions = {  name: node.text,
+                      bookmark: bookmark,
+                      user: self }
+        UserBookmark.where(conditions).first_or_create
+      else
+        unable_to_save[node.text] = node.attr('href')
+      end
+    end
+
     #       b.title = node.text
 
     #     # Associate tags (parent folders)

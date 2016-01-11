@@ -26,8 +26,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 gem 'thin'
 
-
-gem 'fuzzily'
 gem 'hpricot_scrub'
 gem 'paperclip'
 gem 'elasticsearch-model'

@@ -9,8 +9,29 @@ $.get("http://localhost:3000/loggedin", function(data) {
       sessionStorage.clear();
       getLogin().then(function(){
         getHeader();
+        logIn();
       });
     }
+  });
+}
+
+function afterLoginShow(){
+
+}
+
+function logIn () {
+  $('html').on('submit', '#bookmark_form', function(){
+    event.preventDefault();
+    $.ajax({
+      url: 'http://localhost:3000/login',
+      method: "POST",
+      data: $(event.target).serialize()
+    }).then(function(response) {
+     $("body").html(response);
+      loggedIn();
+      }).fail(function(error) {
+        console.log("Error: " + error);
+        });
   });
 }
 
@@ -19,7 +40,7 @@ loggedIn();
 })
 
 function getHeader(){
-  $("#chrome_login a").on('click', function() {
+  return $("#chrome_login a").on('click', function() {
     event.preventDefault();
     $.ajax({
       url:'http://localhost:3000/chrome_new',

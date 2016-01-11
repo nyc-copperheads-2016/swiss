@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   get 'loggedin' => 'sessions#chrome_logged_in'
   get 'mlogin' => 'sessions#mlogin'
+  get 'chrome_new' => 'sessions#chrome_new'
 
 
 

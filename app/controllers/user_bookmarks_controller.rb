@@ -4,6 +4,7 @@ class UserBookmarksController < ApplicationController
   def index
       @user = current_user
       @user_bookmarks = @user.user_bookmarks
+      @user_folders = current_user.folders
   end
 
   def show

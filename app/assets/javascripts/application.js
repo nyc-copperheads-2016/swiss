@@ -19,7 +19,7 @@
 $(document).ready(function() {
 
   var typingTimer;
-  var doneTypingInterval = 250;
+  var doneTypingInterval = 0;
 
   $('#search-field').on('keyup', function () {
     clearTimeout(typingTimer);
@@ -43,7 +43,7 @@ $(document).ready(function() {
         $(this).on("click", function(event) {
           event.preventDefault();
           var $link = $(event.target).attr('href');
-          $('#preview-frame').html('<iframe width="100%" height="500" src="' + $link + '"></iframe>');
+          $('#preview-frame').html('<iframe id="frame" width="100%" height="500" src="' + $link + '"></iframe>');
         });
       });
     });

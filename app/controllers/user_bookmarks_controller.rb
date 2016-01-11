@@ -3,7 +3,7 @@ class UserBookmarksController < ApplicationController
 
   def index
       @user = current_user
-      @user_bookmarks = @user.user_bookmarks
+      @user_bookmarks = @user.user_bookmarks.order(updated_at: :desc)
       @user_folders = current_user.folders
   end
 
@@ -26,6 +26,7 @@ class UserBookmarksController < ApplicationController
   end
 
   def create
+    byebug
     @bookmark = Bookmark.find_or_initialize_by(bookmark_params)
     @user_bookmark = current_user.user_bookmarks.build(name: user_bookmark_params, bookmark: @bookmark)
     if @bookmark.save && @user_bookmark.save

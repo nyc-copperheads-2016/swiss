@@ -18,6 +18,18 @@
 
 $(document).ready(function() {
 
+  $('#user-dash-new-bookmark').on("click", function(event) {
+    event.preventDefault();
+
+    $.ajax({
+      method: "GET",
+      url: "/user_bookmarks/new"
+    }).done(function(result) {
+      var newBookmarkForm = $(result).filter('#new-bookmark').html();
+      $('#modular-user-nav-tab').html(newBookmarkForm);
+    });
+  });
+
   var typingTimer;
   var doneTypingInterval = 0;
 
@@ -36,8 +48,8 @@ $(document).ready(function() {
       url: "/",
       data: {q: $('#search-field').val()}
     }).done(function(result) {
-      var something = $(result).filter('#search-results').html();
-      $('#search-results').html(something);
+      var returned = $(result).filter('#search-results').html();
+      $('#search-results').html(returned);
 
       $("*#search-result-link").each(function() {
         $(this).on("click", function(event) {

@@ -24,7 +24,7 @@
 .user-dash-column {
   border: 1px solid #E7E7E9;
   overflow: scroll;
-  height: 100vh;
+  height: 80vh;
 }
 
 .bookmark {
@@ -34,3 +34,15 @@
   word-wrap: break-word;
   font-size: .75rem;
 }
+
+
+#modular-user-nav-tab {
+  margin: 0;
+  padding: .2rem;
+}
+
+
+.bookmark-uploader-label {
+  margin-right: 1rem;
+}
+

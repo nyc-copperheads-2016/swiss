@@ -1,6 +1,12 @@
 <div class="static-width">
   <div class="row">
     <div class="col-10 col-offset-1">
+    <%=form_for @user do |f|%>
+      <li><%= f.label :bookmark_file %></li>
+      <li><%= f.file_field :bookmark_file %></li>
+      <li><%= f.submit 'Upload' %></li>
+    <%end%>
+
       <%=link_to "new", new_user_bookmark_path%>
       <ul class="no-list-style">
         <%@user_bookmarks.each do |resource|%>

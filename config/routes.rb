@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'logout'=> 'sessions#destroy'
   post 'login' => 'sessions#create'
 
-  resources :users, only:[:new, :create, :show]
+  resources :users, only:[:new, :create, :show, :update]
   resources :user_bookmarks
   get 'mobile' => 'user_bookmarks#chrome'
 

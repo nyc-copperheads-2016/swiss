@@ -39,6 +39,17 @@ ActiveRecord::Schema.define(version: 20160111015400) do
 
   add_index "folders", ["ancestry"], name: "index_folders_on_ancestry", using: :btree
 
+  create_table "trigrams", force: :cascade do |t|
+    t.string  "trigram",     limit: 3
+    t.integer "score",       limit: 2
+    t.integer "owner_id"
+    t.string  "owner_type"
+    t.string  "fuzzy_field"
+  end
+
+  add_index "trigrams", ["owner_id", "owner_type", "fuzzy_field", "trigram", "score"], name: "index_for_match", using: :btree
+  add_index "trigrams", ["owner_id", "owner_type"], name: "index_by_owner", using: :btree
+
   create_table "user_bookmark_categories", force: :cascade do |t|
     t.integer  "user_bookmark_id", null: false
     t.integer  "category_id",      null: false

@@ -5,6 +5,10 @@ class SessionsController < ApplicationController
   def new
   end
 
+  def chrome_new
+    render "new", layout: false
+  end
+
   def mlogin
     render layout: false
   end

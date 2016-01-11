@@ -11,7 +11,7 @@
       <ul class="no-list-style">
         <%@user_bookmarks.each do |resource|%>
           <div class="row">
-            <li class="inline"><%=link_to resource.name, resource.bookmark.url%></li>
+            <li class="inline"><%=link_to resource.name, resource.bookmark.url, :target => "_blank"%></li>
             <li class="inline"><%=link_to "edit", edit_user_bookmark_path(resource)%></li>
             <li class="inline"><%=link_to "delete", user_bookmark_path(resource), method:"delete"%></li>
               <ul>

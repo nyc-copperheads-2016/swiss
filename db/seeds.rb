@@ -8,7 +8,7 @@
 
 u = User.create!(username: Faker::Internet.user_name, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Internet.password)
 
-b = Bookmark.create!(url: Faker::Internet.url)
+b = Bookmark.create!(url: "http://www.oracle.com/technetwork/java/javase/downloads/index.html")
 
 c = Category.create!(name: Faker::Hipster.word)
 

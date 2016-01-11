@@ -16,5 +16,4 @@ class UserBookmark < ActiveRecord::Base
   #     user_bookmark.categories.find_or_create_by(name: category)
   #   end
   # end
-
 end

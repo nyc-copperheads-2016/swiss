@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :bookmarks , through: :user_bookmarks
   has_many :user_bookmark_categories, through: :user_bookmarks
   has_many :categories, through: :user_bookmark_categories
+  has_many :folders
   validates_presence_of :first_name, :last_name, :username, :password, :email
   validates_uniqueness_of :username, :email
   validates :username, length: { minimum: 3 }
@@ -15,7 +16,7 @@ class User < ActiveRecord::Base
 
 
   after_save :spit_out_bookmarks
-  
+
   private
 
   def spit_out_bookmarks
@@ -28,7 +29,7 @@ class User < ActiveRecord::Base
       bookmark = Bookmark.find_or_create_by(url: bookmark_url)
     end
 
-      
+
     #       b.title = node.text
 
     #     # Associate tags (parent folders)

@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :bookmarks , through: :user_bookmarks
   has_many :user_bookmark_categories, through: :user_bookmarks
   has_many :categories, through: :user_bookmark_categories
+  has_many :folders
   validates_presence_of :first_name, :last_name, :username, :password, :email
   validates_uniqueness_of :username, :email
   validates :username, length: { minimum: 3 }
@@ -50,6 +51,7 @@ class User < ActiveRecord::Base
         unable_to_save[node.text] = node.attr('href')
       end
     end
+
 
     #       b.title = node.text
 

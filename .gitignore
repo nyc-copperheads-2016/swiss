@@ -17,6 +17,6 @@
 /tmp
 /coverage/*
 .byebug*
-
+node_modules*
 # Ignore uploaded files
 /public/system/*

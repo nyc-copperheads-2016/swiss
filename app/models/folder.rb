@@ -1,6 +1,7 @@
 class Folder < ActiveRecord::Base
   has_ancestry :orphan_strategy => :adopt
   has_many :user_bookmark_categories
+  belongs_to :user
 end
 # parent           Returns the parent of the record, nil for a root node
 # parent_id        Returns the id of the parent of the record, nil for a root node

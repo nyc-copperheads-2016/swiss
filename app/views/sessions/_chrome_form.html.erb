@@ -1,0 +1,11 @@
+<form method="POST", id="bookmark_form" action="/login" >
+  <input name="authenticity_token" value="<%= form_authenticity_token %>", type="hidden">
+    <ul class="no-list-style">
+      <li>
+        <input type="text" name="username" placeholder="username" ></li>
+      <li>
+        <input type="text" name="password" placeholder="password" ></li>
+      <li>
+        <input type="submit" value="submit">
+    </ul>
+</form>

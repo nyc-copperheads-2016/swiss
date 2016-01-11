@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   end
 
   def chrome_new
-    render "new", layout: false
+    render layout: false
   end
 
   def mlogin
@@ -21,6 +21,7 @@ class SessionsController < ApplicationController
     user = User.find_by(username: params[:username])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
+
       redirect_to root_path
     else
       render 'new'

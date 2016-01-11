@@ -1,27 +1,62 @@
 <div class="static-width">
-  <div class="row">
-    <div class="col-10 col-offset-1">
-    <%=form_for @user do |f|%>
-      <li><%= f.label :bookmark_file %></li>
-      <li><%= f.file_field :bookmark_file %></li>
-      <li><%= f.submit 'Upload' %></li>
-    <%end%>
+  <div class="col-12">
 
-      <%=link_to "new", new_user_bookmark_path%>
-      <ul class="no-list-style">
-        <%@user_bookmarks.each do |resource|%>
-          <div class="row">
-            <li class="inline"><%=link_to resource.name, resource.bookmark.url, :target => "_blank"%></li>
-            <li class="inline"><%=link_to "edit", edit_user_bookmark_path(resource)%></li>
-            <li class="inline"><%=link_to "delete", user_bookmark_path(resource), method:"delete"%></li>
-              <ul>
-                <%resource.categories.each do |tag|%>
-                  <li><%=tag.name%></li>
-                <%end%>
-              </ul>
-          </div>
-        <%end%>
-      </ul>
+    <div class="row center">
+      <div class="user-dash-nav-tab col-1">
+        <%= link_to image_tag("refresh-icon.png", class: "tab-icon"), user_bookmarks_path %>
+      </div>
+      <div class="user-dash-nav-tab user-dash-nav-tab-text col-1">
+        <%= link_to "new", new_user_bookmark_path, id: "user-dash-new-bookmark", class: "link white" %>
+      </div>
+      <div class="user-dash-nav-tab user-dash-nav-tab-text white col-1">
+        categorize
+      </div>
+      <div class="user-dash-nav-tab user-dash-nav-tab-text white col-1">
+        categorize
+      </div>
+
+
+      <div id="modular-user-nav-tab" class="user-dash-nav-tab user-dash-nav-tab-text white col-4">
+        <div class="bookmark-uploader">
+          <%= render 'bookmark_uploader' %>
+        </div>
+      </div>
     </div>
+
+    <div class="row">
+
+      <div class="col-3 user-dash-column-1 user-dash-column">
+
+        <div class="user-profile">
+          <%= render 'users/profile' %>
+        </div>
+
+        <div class="user-profile-folders">
+          <%= render partial: 'folders/user_folders', locals: {user_folders: @user_folders} %>
+        </div>
+
+      </div>
+
+      <div class="col-5 user-dash-column-2 user-dash-column">
+        <ul class="no-list-style">
+          <%@user_bookmarks.each do |resource|%>
+            <div class="bookmark">
+              <li><%=link_to resource.name, resource.bookmark.url, class: "link" %></li>
+              <li class="inline"><%=link_to "edit", edit_user_bookmark_path(resource)%></li>
+              <li class="inline"><%=link_to "delete", user_bookmark_path(resource), method:"delete"%></li>
+              <li>
+                <ul>
+                  <%resource.categories.each do |tag|%>
+                    <li><%=tag.name%></li>
+                  <%end%>
+                </ul>
+              </li>
+            </div>
+          <%end%>
+        </ul>
+      </div>
+
+    </div>
+
   </div>
 </div>

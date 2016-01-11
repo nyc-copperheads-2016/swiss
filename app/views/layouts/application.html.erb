@@ -9,9 +9,14 @@
   <body>
 
     <div class="row">
-      <div class="col-12">
+      <div class="col-10 col-offset-1">
         <div class="static-width">
-          <div class="col-10 col-offset-1 right">
+
+          <div class="col-4 col-offset-4 center">
+            <h1><%= link_to "SWISS", root_path, class: "link" %></h1>
+          </div>
+
+          <div class="col-4 right">
               <nav>
                 <ul class="no-list-style">
                   <% if logged_in? %>
@@ -27,17 +32,6 @@
         </div>
       </div>
     </div>
-
-    <div class="row">
-      <div class="col-12">
-        <div class="static-width">
-          <div class="col-4 col-offset-4 center">
-            <h1><%= link_to "SWISS", root_path, class: "link" %></h1>
-          </div>
-        </div>
-      </div>
-    </div>
-
 
     <% if defined?(@user.errors) %>
       <div class="row">

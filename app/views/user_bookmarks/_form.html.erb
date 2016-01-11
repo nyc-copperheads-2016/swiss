@@ -1,8 +1,9 @@
-<%=form_for @user_bookmark do |f|%>
-  <%=f.text_field :name, required: true, placeholder: "Name", id: "url-name-form-field", class: "form-field" %>
-  <%=f.fields_for :bookmark do |g|%>
-    <%=g.text_field "url", required: true, disabled: !@user_bookmark.new_record?, placeholder: "URL", id: "url-form-field", class: "form-field" %>
-  <%= submit_tag %>
+<ul class="no-list-style">
+  <%=form_for @user_bookmark do |f|%>
+    <li class="inline"><%=f.text_field :name, required: true, placeholder: "Name", id: "url-name-form-field" %></li>
+    <%=f.fields_for :bookmark do |g|%>
+      <li class="inline"><%=g.text_field "url", required: true, disabled: !@user_bookmark.new_record?, placeholder: "URL", id: "url-form-field" %></li>
+    <%= submit_tag %>
+    <%end%>
   <%end%>
-<%end%>
-
+</ul>

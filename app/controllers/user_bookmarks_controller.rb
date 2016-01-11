@@ -36,7 +36,7 @@ class UserBookmarksController < ApplicationController
   end
 
   def chrome_create
-    @bookmark = Bookmark.find_or_initialize_by(url: bookmark_params)
+    @bookmark = Bookmark.find_or_initialize_by(url: params[:bookmark_attributes][:url])
     @user_bookmark = current_user.user_bookmarks.build(name: user_bookmark_params, bookmark: @bookmark)
     if @bookmark.save && @user_bookmark.save
       redirect_to chrome_saved_path

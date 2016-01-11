@@ -12,11 +12,23 @@ $.get("http://localhost:3000/loggedin", function(data) {
         chrome.tabs.getSelected(null,function(tab) { // null defaults to current window
             title = tab.title;
             $('#name').val(title);
-          });
+         });
        $("body").html(form);
-    });
-  }
-   else {
+    }).then(function(data){$("#bookmark_form").on('submit', function() {
+      event.preventDefault();
+          $.ajax({
+            url: 'http://localhost:3000/chrome_create',
+            method: "POST",
+            data: $(event.target).serialize()
+            }).then(function(response) {
+             $("body").html(response);
+            }).fail(function(error) {
+              console.log("Error: " + error);
+           });
+        });
+
+          });
+       } else {
     console.log("hi");
      sessionStorage.clear();
      $.get("http://localhost:3000/mlogin", function(log) {
@@ -47,27 +59,6 @@ loggedIn();
 //     active: true,
 //     currentWindow: true
 //   };
-<<<<<<< HEAD
-=======
-var url = "";
-var title = "";
-
-chrome.tabs.query({'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT},
-   function(tabs){
-      url = tabs[0].url;
-      console.log(url)
-   }
-);
-
-chrome.tabs.getSelected(null,function(tab) { // null defaults to current window
-  title = tab.title;
-  console.log(title)
-});
-
-var bookmark = {bookmark: {url: url, name: title}};
-return bookmark
-
->>>>>>> bdacfb02b2f63e5fa755006161aaa8498bac5134
 //   chrome.tabs.query(queryInfo, function(tabs) {
 //     // chrome.tabs.query invokes the callback with a list of tabs that match the
 //     // query. When the popup is opened, there is certainly a window and at least

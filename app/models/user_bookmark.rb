@@ -2,6 +2,7 @@ class UserBookmark < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :bookmark
+  belongs_to :folder
 
   has_many :user_bookmark_categories
   has_many :categories, through: :user_bookmark_categories

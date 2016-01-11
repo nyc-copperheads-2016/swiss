@@ -1,6 +1,6 @@
 <form method="POST", id="bookmark_form" action="/user_bookmarks" >
 <input name="authenticity_token" value="<%= form_authenticity_token %>", type="hidden">
-<input type="text", id="name", name="user_bookmark[name]", value = "" ><p>Rename title of bookmark or save as-is by pressing "enter"</p>
+<input type="text", id="name", name="user_bookmark[name]", value = "" ><p>Rename title of bookmark or save as-is by pressing "submit"</p>
 <input type="hidden", id="url", name="bookmark_attributes[url]", value = "" >
 <input type="submit" value="submit">
 

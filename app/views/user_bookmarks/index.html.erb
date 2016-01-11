@@ -6,13 +6,13 @@
         <%@user_bookmarks.each do |resource|%>
           <div class="row">
             <li class="inline"><%=link_to resource.name, resource.bookmark.url%></li>
+            <li class="inline"><%=link_to "edit", edit_user_bookmark_path(resource)%></li>
+            <li class="inline"><%=link_to "delete", user_bookmark_path(resource), method:"delete"%></li>
               <ul>
                 <%resource.categories.each do |tag|%>
                   <li><%=tag.name%></li>
                 <%end%>
               </ul>
-            <li class="inline"><%=link_to "edit", edit_user_bookmark_path(resource)%></li>
-            <li class="inline"><%=link_to "delete", user_bookmark_path(resource), method:"delete"%></li>
           </div>
         <%end%>
       </ul>

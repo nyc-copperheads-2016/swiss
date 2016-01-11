@@ -13,15 +13,19 @@ class Bookmark < ActiveRecord::Base
   validates_presence_of :url
   validates_uniqueness_of :url
 
-  after_save :set_content
-  after_find :set_content
+  before_save :set_content
+  # after_find :set_content
 
   def raw_content
     Nokogiri::HTML(open("#{self.url}"))
   end
 
   def set_content
-    self.content = ApplicationHelper.clean(raw_content.text.downcase)
+    text = raw_content.text
+    if ! text.valid_encoding?
+      text = text.encode("UTF-16be", :invalid=>:replace, :replace=>"?").encode('UTF-8')
+    end
+    self.content = ApplicationHelper.clean(text)
   end
 
   def self.search(query)

@@ -15,6 +15,10 @@ class UserBookmarksController < ApplicationController
     render layout: false
   end
 
+  def chrome_saved
+    render layout: false
+  end
+
   def new
     @user_bookmark = UserBookmark.new
     @user_bookmark.bookmark = Bookmark.new
@@ -25,6 +29,17 @@ class UserBookmarksController < ApplicationController
     @user_bookmark = current_user.user_bookmarks.build(name: user_bookmark_params, bookmark: @bookmark)
     if @bookmark.save && @user_bookmark.save
       redirect_to user_bookmarks_path
+    else
+      flash[:notice] = "Invalid Parameters, Please Try Again"
+      render 'new'
+    end
+  end
+
+  def chrome_create
+    @bookmark = Bookmark.find_or_initialize_by(bookmark_params)
+    @user_bookmark = current_user.user_bookmarks.build(name: user_bookmark_params, bookmark: @bookmark)
+    if @bookmark.save && @user_bookmark.save
+      redirect_to chrome_saved_path
     else
       flash[:notice] = "Invalid Parameters, Please Try Again"
       render 'new'

@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   get 'mobile' => 'user_bookmarks#chrome'
 
   get 'chrome' => 'user_bookmarks#chrome'
+  post 'chrome_create' => 'user_bookmarks#chrome_create'
+  get 'chrome_saved' => 'user_bookmarks#chrome_saved'
+
   get 'loggedin' => 'sessions#chrome_logged_in'
   get 'mlogin' => 'sessions#mlogin'
 

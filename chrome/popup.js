@@ -12,11 +12,23 @@ $.get("http://localhost:3000/loggedin", function(data) {
         chrome.tabs.getSelected(null,function(tab) { // null defaults to current window
             title = tab.title;
             $('#name').val(title);
-          });
+         });
        $("body").html(form);
-    });
-  }
-   else {
+    }).then(function(data){$("#bookmark_form").on('submit', function() {
+      event.preventDefault();
+          $.ajax({
+            url: 'http://localhost:3000/chrome_create',
+            method: "POST",
+            data: $(event.target).serialize()
+            }).then(function(response) {
+             $("body").html(response);
+            }).fail(function(error) {
+              console.log("Error: " + error);
+           });
+        });
+
+          });
+       } else {
     console.log("hi");
      sessionStorage.clear();
      $.get("http://localhost:3000/mlogin", function(log) {

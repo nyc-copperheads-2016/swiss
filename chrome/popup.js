@@ -1,47 +1,62 @@
 function loggedIn() {
-$.get("http://localhost:3000/loggedin", function(data) {
+  return $.get("http://localhost:3000/loggedin").then(function(data) {
    if (data) {
      sessionStorage.loggedIn = true ;
      console.log("User is logged in");
-     $.get("http://localhost:3000/chrome", function(form){
-        chrome.tabs.query({'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT},
-        function(tabs){
-          url = tabs[0].url;
-          $('#url').val(url);
-        });
-        chrome.tabs.getSelected(null,function(tab) { // null defaults to current window
-            title = tab.title;
-            $('#name').val(title);
-         });
-       $("body").html(form);
-    }).then(function(data){$("#bookmark_form").on('submit', function() {
-      event.preventDefault();
-          $.ajax({
-            url: 'http://localhost:3000/chrome_create',
-            method: "POST",
-            data: $(event.target).serialize()
-            }).then(function(response) {
-             $("body").html(response);
-            }).fail(function(error) {
-              console.log("Error: " + error);
-           });
-        });
-
-          });
-       } else {
-    console.log("hi");
-     sessionStorage.clear();
-     $.get("http://localhost:3000/mlogin", function(log) {
-      $("body").html(log);
-     });
-   }
- });
+     setFormVals().then(function(){postLink(data)});
+    } else {
+      console.log("hi");
+      sessionStorage.clear();
+      $.get("http://localhost:3000/mlogin", function(log) {
+        $("body").html(log);
+      });
+    }
+  });
 } 
 
 $(document).ready(function(){
-loggedIn();
+  loggedIn();
 })
 
+function linkHome(){
+  $("#chrome_app").on('click', 'a', function(event) {
+    event.preventDefault();
+    var newURL = "http://localhost:3000/user_bookmarks";
+    chrome.tabs.create({ url: newURL });
+  });  
+}
+
+
+function setFormVals () {
+ return $.get("http://localhost:3000/chrome", function(form){
+    chrome.tabs.query({'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT},
+      function(tabs){
+        url = tabs[0].url;
+        $('#url').val(url);
+      });
+      chrome.tabs.getSelected(null,function(tab) { // null defaults to current window
+        title = tab.title;
+        $('#name').val(title);
+      });
+    $("body").html(form);
+    linkHome();
+  });
+}
+
+function postLink (){$("#bookmark_form").on('submit', function() {
+  event.preventDefault();
+  $.ajax({
+    url: 'http://localhost:3000/chrome_create',
+    method: "POST",
+    data: $(event.target).serialize()
+  }).then(function(response) {
+   $("body").html(response);
+   linkHome();
+    }).fail(function(error) {
+      console.log("Error: " + error);
+      });
+  });
+}
 // // Copyright (c) 2014 The Chromium Authors. All rights reserved.
 // // Use of this source code is governed by a BSD-style license that can be
 // // found in the LICENSE file.

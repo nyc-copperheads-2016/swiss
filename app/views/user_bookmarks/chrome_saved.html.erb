@@ -1,1 +1,10 @@
-  <p>Bookmark Saved! Open a new web site to save a new bookmark.</p>
+<ul class="no-list-style">
+  <% if logged_in? %>
+    <li class="inline" id="chrome_app">Welcome back <%= link_to current_user.username, user_bookmarks_path %>!</li>
+    <li class="inline"><%= link_to 'Log out', logout_path, class: "link" %></li>
+  <% else %>
+    <li class="inline"><%= link_to 'Join', new_user_path, class: "link" %></li>
+    <li class="inline"><%= link_to 'Log In', login_path, class: "link" %></li>
+  <% end %>
+</ul>
+<p>Bookmark Saved! Open a new web site to save a new bookmark.</p>

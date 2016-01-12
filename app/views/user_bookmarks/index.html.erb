@@ -12,11 +12,7 @@
 
       <%= render partial: 'col_1', locals: {user_folders: @user_folders} %>
 
-      <div id="user-dash-folder-display" class="col-5 user-dash-column-2 user-dash-column">
-
-        <%= render partial: 'user_dash_folder_display_default', locals: {user_bookmarks: @user_bookmarks} %>
-
-      </div>
+      <%= render partial: 'col_2', locals: {user_bookmarks: @user_bookmarks} %>
 
     </div>
 

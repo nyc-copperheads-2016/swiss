@@ -18,6 +18,30 @@
 
 $(document).ready(function() {
 
+  $('*#folder-name').each(function() {
+    $(this).on("click", function(event) {
+      event.preventDefault();
+
+      $.ajax({
+        method: "GET",
+        url: $(this).attr('href')
+      }).done(function(result) {
+        console.log(result);
+        var folderContent = $(result).filter('#folder-bookmarks-show').html();
+        $('#user-dash-folder-display').html(folderContent);
+      });
+    });
+  });
+
+
+  $.ajax({
+    method: "GET",
+    url: "/folders/new"
+  }).done(function(result) {
+    var newFolderForm = $(result).filter('#new-folder').html();
+    $('#user-profile-folders').html(newFolderForm);
+  });
+
   $('#user-dash-new-bookmark').on("click", function(event) {
     event.preventDefault();
 

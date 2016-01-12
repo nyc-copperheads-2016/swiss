@@ -1,0 +1,11 @@
+<div id="folder-bookmarks-show" class="col-4 col-offset-4 center static-width">
+  <%@folder_bookmarks.each do |resource|%>
+    <ul class="no-list-style">
+      <div class="bookmark">
+        <li><%=link_to resource.name, resource.bookmark.url, class: "link" %></li>
+        <li class="inline"><%=link_to "edit", edit_user_bookmark_path(resource)%></li>
+        <li class="inline"><%=link_to "delete", user_bookmark_path(resource), method:"delete"%></li>
+      </div>
+    </ul>
+  <%end%>
+</div>

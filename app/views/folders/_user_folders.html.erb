@@ -1,6 +1,9 @@
-<ul class="no-list-style">
-  test
-  <% user_folders.each do |folder| %>
-    <li class="inline"><% folder %></li>
-  <% end %>
-</ul>
+<% user_folders.each do |folder| %>
+  <ul class="no-list-style">
+    <li class="inline"><%= link_to folder.name, folder_path(folder), id: "folder-name" %></li>
+    <% unless folder.name == current_user.username %>
+      <li class="inline"><%= link_to "edit", edit_folder_path(folder) %>
+      <li class="inline"><%= link_to "delete", folder_path(folder), method: "delete" %>
+    <% end %>
+  </ul>
+<% end %>

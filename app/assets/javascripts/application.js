@@ -18,6 +18,21 @@
 
 $(document).ready(function() {
 
+// render single bookmark meta data
+  $('*#bookmark').each(function() {
+    $(this).mouseover(function() {
+      var bookmark = $(this).html();
+      var aTag = $(bookmark).filter('#link').html();
+      var url = $(aTag).attr('href');
+      $.ajax({
+        method: "GET",
+        url: url
+      }).done(function(result) {
+        var userBookmark = $(result).filter('#user-bookmark-show').html();
+        $("#user-dash-bookmark-meta-display").html(userBookmark);
+      });
+    });
+  });
 
 // render new folder form on user dashboard
   $.ajax({

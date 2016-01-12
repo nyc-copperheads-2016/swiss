@@ -20,31 +20,26 @@ class User < ActiveRecord::Base
   private
 
   def spit_out_bookmarks
-    bookmarks = Nokogiri::HTML(Paperclip.io_adapters.for(self.bookmark_file).read)
+    doc = Bookmarks::Document.new
+    doc.parse(self.bookmark_file.queued_for_write[:original].path)
 
-    bookmarks.xpath('//dt/a').each do |node|
-      bookmark_url = node.attr('href')
-      bookmark = Bookmark.find_or_create_by(url: bookmark_url)
-      folder = Folder.find_by(name: self.username)
-      conditions = {  name: node.text,
-                      bookmark: bookmark,
-                      user: self,
-                      folder: folder
-                    }
-      UserBookmark.where(conditions).first_or_create
-    end
+    yield
 
-    unable_to_save = {}
-    bookmarks.xpath('//dt/a').each do |node|
-      bookmark_url = node.attr('href')
-      bookmark = Bookmark.find_or_initialize_by(url: bookmark_url)
-      if bookmark.save
-        conditions = {  name: node.text,
-                      bookmark: bookmark,
-                      user: self }
-        UserBookmark.where(conditions).first_or_create
+    doc.bookmarks.each do |node|
+      bookmark = Bookmark.find_or_create_by(url: node.url)
+      root = Folder.find_by(name: self.username)
+
+      if node.tags.nil?
+        UserBookmark.where({name: node.title, bookmark: bookmark, user: self, folder: root}).first_or_create
       else
-        unable_to_save[node.text] = node.attr('href')
+        node.tags.split(",").each_with_index do |fold, index|
+          if index == 0
+            @target = root.children.where({name: fold, user: self}).first_or_create
+          else
+            @target = @target.children.where({name: fold, user: self}).first_or_create
+          end
+        end
+        UserBookmark.where({name: node.title, bookmark: bookmark, user: self, folder: @target}).first_or_create
       end
     end
   end

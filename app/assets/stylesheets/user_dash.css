@@ -19,7 +19,7 @@
 .user-profile-folders {
   padding: 1rem;
   background: #EBEFF8;
-  height: 23rem;
+  /*height: 23rem;*/
 }
 
 .user-dash-column {
@@ -47,3 +47,14 @@
   margin-right: 1rem;
 }
 
+.user-dash-bookmark-meta-display {
+  padding: 1rem;
+}
+
+.bookmark-meta-name {
+  font-size: 1rem;
+}
+
+.bookmark-meta-url {
+  font-size: .75rem;
+}

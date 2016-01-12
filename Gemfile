@@ -30,10 +30,11 @@ gem 'hpricot_scrub'
 gem 'paperclip'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem 'ancestry'
-
+gem 'bookmarks'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :production do

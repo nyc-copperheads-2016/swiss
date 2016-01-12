@@ -9,16 +9,21 @@ James Kirkpatrick
 
 Bruno Zatta
 
-### Timeline
+### Timeline MVP
 ![alt text](imgs/timeline-pre-mvp.jpeg)
+
+### Timeline Stretch
+![alt text](imgs/Stretch_timeline.jpeg)
 
 ### Trello
 
-
 <a href="https://trello.com/b/SEOKS4kQ/swiss">SWISS</a>
 
-### Schema Design
+### Schema Design 1
 ![alt text](imgs/schema.png)
+
+### Schema Update
+![alt text](imgs/schema_update.png)
 
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- SQL XML created by WWW SQL Designer, http://code.google.com/p/wwwsqldesigner/ -->

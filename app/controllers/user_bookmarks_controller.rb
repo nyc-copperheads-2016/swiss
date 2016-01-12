@@ -39,7 +39,9 @@ class UserBookmarksController < ApplicationController
 
   def chrome_create
     @bookmark = Bookmark.find_or_initialize_by(url: params[:bookmark_attributes][:url])
-    @user_bookmark = current_user.user_bookmarks.build(name: user_bookmark_params, bookmark: @bookmark)
+    @folder = Folder.find(user_folder_params)
+    @user_bookmark = current_user.user_bookmarks.build(name: user_bookmark_params, bookmark: @bookmark, folder: @folder)
+    # byebug
     if @bookmark.save && @user_bookmark.save
       render 'chrome_saved', layout: false
     else
@@ -81,6 +83,7 @@ class UserBookmarksController < ApplicationController
     end
 
     def user_bookmarks_edit_params
+      params[:user_bookmark][:folder_id] = params[:user_bookmark][:folder][:folder_id]
       params.require(:user_bookmark).permit(:name, :folder_id)
     end
 

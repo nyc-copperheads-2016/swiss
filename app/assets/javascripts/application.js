@@ -18,13 +18,14 @@
 
 $(document).ready(function() {
 
+
+// render new folder form on user dashboard
   $.ajax({
     method: "GET",
     url: "/folders/new"
   }).done(function(result) {
     var newFolder = $(result).filter('#new-folder').html();
-    console.log('#user-dash-folder-display');
-    $('#user-dash-folder-display').append(newFolder);
+    $('#user-profile-new-folder').html(newFolder);
   });
 
 // user dashboard display bookmarks by folder logic
@@ -37,7 +38,8 @@ $(document).ready(function() {
         url: $(this).attr('href')
       }).done(function(result) {
         var folderContent = $(result).filter('#folder-bookmarks-show').html();
-        $('#user-dash-folder-display').append(folderContent);
+        console.log(folderContent);
+        $('#user-dash-folder-display').html(folderContent);
       });
     });
   });

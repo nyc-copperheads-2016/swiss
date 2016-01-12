@@ -55,6 +55,7 @@ class UserBookmarksController < ApplicationController
   end
 
   def update
+    byebug
     @user_bookmark = UserBookmark.find_by(id: params[:id])
     if @user_bookmark.update!(user_bookmarks_edit_params)
       redirect_to @user_bookmark

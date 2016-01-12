@@ -15,19 +15,14 @@ $.get("http://localhost:3000/loggedin", function(data) {
   });
 }
 
-function afterLoginShow(){
-
-}
-
 function logIn () {
-  $('html').on('submit', '#bookmark_form', function(){
+  $('html').on('submit','#user_form', function(){
     event.preventDefault();
     $.ajax({
       url: 'http://localhost:3000/login',
       method: "POST",
       data: $(event.target).serialize()
-    }).then(function(response) {
-     $("body").html(response);
+    }).then(function() {
       loggedIn();
       }).fail(function(error) {
         console.log("Error: " + error);
@@ -61,9 +56,8 @@ function linkHome(){
   });  
 }
 
-
 function setFormVals () {
- return $.get("http://localhost:3000/chrome", function(form){
+  return $.get("http://localhost:3000/chrome", function(form){
     chrome.tabs.query({'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT},
       function(tabs){
         url = tabs[0].url;
@@ -85,6 +79,7 @@ function postLink (){$("#bookmark_form").on('submit', function() {
     method: "POST",
     data: $(event.target).serialize()
   }).then(function(response) {
+    console.log(response)
    $("body").html(response);
    linkHome();
     }).fail(function(error) {

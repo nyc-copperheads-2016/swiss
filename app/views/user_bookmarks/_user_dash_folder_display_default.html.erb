@@ -1,0 +1,17 @@
+<ul class="no-list-style">
+
+  <%user_bookmarks.each do |resource|%>
+
+    <div class="bookmark">
+
+      <li><%=link_to resource.name, resource.bookmark.url, class: "link" %></li>
+
+      <li class="inline"><%=link_to "edit", edit_user_bookmark_path(resource)%></li>
+
+      <li class="inline"><%=link_to "delete", user_bookmark_path(resource), method:"delete"%></li>
+
+    </div>
+
+  <%end%>
+
+</ul>

@@ -25,9 +25,12 @@ class User < ActiveRecord::Base
     bookmarks.xpath('//dt/a').each do |node|
       bookmark_url = node.attr('href')
       bookmark = Bookmark.find_or_create_by(url: bookmark_url)
+      folder = Folder.find_by(name: self.username)
       conditions = {  name: node.text,
                       bookmark: bookmark,
-                      user: self }
+                      user: self,
+                      folder: folder
+                    }
       UserBookmark.where(conditions).first_or_create
     end
 

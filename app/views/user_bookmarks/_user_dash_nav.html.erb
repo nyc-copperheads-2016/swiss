@@ -1,0 +1,34 @@
+<div class="user-dash-nav-tab col-1">
+
+  <%= link_to image_tag("refresh-icon.png", class: "tab-icon"), user_bookmarks_path %>
+
+</div>
+
+<div class="user-dash-nav-tab user-dash-nav-tab-text col-1">
+
+  <%= link_to "new", new_user_bookmark_path, id: "user-dash-new-bookmark", class: "link white" %>
+
+</div>
+
+<div class="user-dash-nav-tab user-dash-nav-tab-text white col-1">
+
+  categorize
+
+</div>
+
+<div class="user-dash-nav-tab user-dash-nav-tab-text white col-1">
+
+  categorize
+
+</div>
+
+
+<div id="modular-user-nav-tab" class="user-dash-nav-tab user-dash-nav-tab-text white col-5">
+
+  <div class="bookmark-uploader">
+
+    <%= render 'bookmark_uploader' %>
+
+  </div>
+
+</div>

@@ -1,10 +1,17 @@
 <ul class="no-list-style">
+
   <% if logged_in? %>
+
     <li class="inline" id="chrome_app">Welcome back <%= link_to current_user.username, "#" %>!</li>
+
     <input name="authenticity_token" value="<%= form_authenticity_token %>", type="hidden">
+
     <li class="inline"><a href="http://localhost.com:3000/logout">Logout</a></li>
+
   <% else %>
-  <li class="inline" id="chrome_login"><a href="http://localhost.com:3000/login">Login</a>
-    </li>
+
+    <li class="inline" id="chrome_login"><a href="http://localhost.com:3000/login">Login</a></li>
+
   <% end %>
-  </ul>
+
+</ul>

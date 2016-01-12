@@ -1,8 +1,15 @@
 <%=@user_bookmark.name%>
+
 <%=@user_bookmark.bookmark.url%>
+
 <div>
+
   <%@user_bookmark.categories.each do |tag|%>
+
     <%=tag.name%>
+
   <%end%>
+
 </div>
+
 <%=link_to "home", root_path%>

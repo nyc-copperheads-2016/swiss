@@ -16,7 +16,7 @@
       </div>
 
 
-      <div id="modular-user-nav-tab" class="user-dash-nav-tab user-dash-nav-tab-text white col-4">
+      <div id="modular-user-nav-tab" class="user-dash-nav-tab user-dash-nav-tab-text white col-5">
         <div class="bookmark-uploader">
           <%= render 'bookmark_uploader' %>
         </div>
@@ -32,12 +32,13 @@
         </div>
 
         <div class="user-profile-folders">
-          <%= render partial: 'folders/user_folders', locals: {user_folders: @user_folders} %>
+          <div id="user-profile-folders"></div>
+          <%= render partial: "folders/user_folders", locals: {user_folders: @user_folders} %>
         </div>
 
       </div>
 
-      <div class="col-5 user-dash-column-2 user-dash-column">
+      <div id="user-dash-folder-display" class="col-5 user-dash-column-2 user-dash-column">
         <ul class="no-list-style">
           <%@user_bookmarks.each do |resource|%>
             <div class="bookmark">

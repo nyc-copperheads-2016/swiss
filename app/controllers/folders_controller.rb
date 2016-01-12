@@ -1,9 +1,10 @@
-class FolderController < ApplicationController
+class FoldersController < ApplicationController
   def index
     @folders = Folder.all
   end
   def show
     @folder = Folder.find_by(id: params[:id])
+    @folder_bookmarks = @folder.user_bookmarks
   end
 
   def new
@@ -11,11 +12,16 @@ class FolderController < ApplicationController
   end
 
   def create
-    @parent = Folder.find_by(params[:id])
-    @folder = @parent.children.build(folder_params)
+    if params[:id].nil?
+      @parent = Folder.find_by(name: current_user.username)
+    else
+      @parent = Folder.find_by(params[:id])
+    end
+      @folder = @parent.children.build(folder_params)
+      @folder.user = current_user
     if @folder.save!
       flash[:notice] = "Folder Successfully Created"
-      redirect_to root_path
+      redirect_to user_bookmarks_path
     else
       flash[:error] = "Unable to Create Folder"
       render 'new'
@@ -30,7 +36,7 @@ class FolderController < ApplicationController
     @folder = Folder.find_by(id: params[:id])
     if @folder.update!(folder_params)
       flash[:notice] = "Folder Successfully Updated"
-      redirect_to root_path
+      redirect_to user_bookmarks_path
     else
       flash[:error] = "Unable to Update Folder"
       render 'edit'
@@ -40,7 +46,7 @@ class FolderController < ApplicationController
   def destroy
     @folder = Folder.find_by(id: params[:id])
     @folder.destroy
-    redirect_to root_path
+    redirect_to user_bookmarks_path
   end
 
   private

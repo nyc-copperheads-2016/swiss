@@ -26,9 +26,9 @@ class UserBookmarksController < ApplicationController
   end
 
   def create
-    byebug
     @bookmark = Bookmark.find_or_initialize_by(bookmark_params)
-    @user_bookmark = current_user.user_bookmarks.build(name: user_bookmark_params, bookmark: @bookmark)
+    @folder = Folder.find(user_folder_params)
+    @user_bookmark = current_user.user_bookmarks.build(name: user_bookmark_params, bookmark: @bookmark, folder: @folder)
     if @bookmark.save && @user_bookmark.save
       redirect_to user_bookmarks_path
     else
@@ -76,8 +76,12 @@ class UserBookmarksController < ApplicationController
       params.require(:user_bookmark).permit(:name)[:name]
     end
 
+    def user_folder_params
+      params.require(:user_bookmark).permit(folder:[:folder_id])[:folder][:folder_id]
+    end
+
     def user_bookmarks_edit_params
-      params.require(:user_bookmark).permit(:name)
+      params.require(:user_bookmark).permit(:name, :folder_id)
     end
 
 end

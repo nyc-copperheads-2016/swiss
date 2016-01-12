@@ -5,6 +5,7 @@
 .user-dash-nav-tab {
   background: #5288CE;
   border: 1px solid #76a3db;
+  height: 3.5rem;
 }
 
 .tab-icon {
@@ -17,9 +18,7 @@
 }
 
 .user-profile-folders {
-  padding: 1rem;
   background: #EBEFF8;
-  /*height: 23rem;*/
 }
 
 .user-dash-column {
@@ -34,6 +33,10 @@
   border-bottom: 1px solid #E7E7E9;
   word-wrap: break-word;
   font-size: .75rem;
+}
+
+.bookmark:hover {
+  background: #EBEFF8;
 }
 
 

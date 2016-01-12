@@ -41,10 +41,10 @@ class UserBookmarksController < ApplicationController
     @bookmark = Bookmark.find_or_initialize_by(url: params[:bookmark_attributes][:url])
     @user_bookmark = current_user.user_bookmarks.build(name: user_bookmark_params, bookmark: @bookmark)
     if @bookmark.save && @user_bookmark.save
-      redirect_to chrome_saved_path
+      render 'chrome_saved', layout: false
     else
       flash[:notice] = "Invalid Parameters, Please Try Again"
-      render 'new'
+      render 'chrome_saved', layout: false
     end
   end
 

@@ -70,6 +70,10 @@ html, body {
   color: #5288CE
 }
 
+.main-content {
+  height: 100vh;
+}
+
 /********************
 desktop
 ********************/

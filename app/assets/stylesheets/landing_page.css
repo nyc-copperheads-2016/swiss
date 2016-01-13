@@ -5,3 +5,9 @@
 .main-nav {
   margin-top: 1rem;
 }
+
+.footer {
+  font-size: .75rem;
+  background: #232323;
+  padding-top: 10rem;
+}

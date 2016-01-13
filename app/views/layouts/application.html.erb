@@ -13,8 +13,8 @@
         <div class="col-10 col-offset-1">
           <div class="static-width">
 
-            <div class="col-4 col-offset-4 center">
-              <h1><%= link_to "SWISS", root_path, class: "link white" %></h1>
+            <div class="col-2 col-offset-5 center">
+              <h1><%= link_to (image_tag("logo.png", class: "logo")), root_path, class: "link white" %></h1>
             </div>
 
             <div class="main-nav col-4 right">
@@ -24,8 +24,9 @@
                       <li class="inline">Welcome back <%= link_to current_user.username, user_bookmarks_path, class: "white" %>!</li>
                       <li class="inline"><%= link_to 'Log out', logout_path, class: "link white" %></li>
                     <% else %>
-                      <li class="inline"><%= link_to 'Join', new_user_path, class: "link white" %></li>
-                      <li class="inline"><%= link_to 'Log In', login_path, class: "link white" %></li>
+                      <li class="inline"><%= link_to 'Join ', new_user_path, class: "link white" %></li>
+                      <li class="inline white"> | </li>
+                      <li class="inline"><%= link_to ' Log In', login_path, class: "link white" %></li>
                     <% end %>
                   </ul>
                 </nav>
@@ -52,7 +53,20 @@
       </div>
     <% end %>
 
-    <%= yield %>
+
+    <div class="main-content row">
+      <%= yield %>
+    </div>
+
+    <div class="row">
+      <div class="footer col-12">
+        <div class="col-10 col-offset-1 center">
+          <div class="static-width">
+            <p class="white">2016 SWISS ©, All Rights Reserved</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </body>
 </html>

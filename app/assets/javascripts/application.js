@@ -124,7 +124,8 @@ function editBookmark() {
         url: '/user_bookmarks/' + id + '/edit'
       }).then(function(response){
         var id = $(response).find(".edit_user_bookmark input").last().val();
-         $("div li[data-type=" + id + "]").parent().html($(response).find(".edit_user_bookmark"));
+        var editForm = $(response).find(".edit_user_bookmark");
+         $("#user-dash-bookmark-meta-display").html(editForm);
       }).fail(function(errors){
         console.log(errors);
       });

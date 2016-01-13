@@ -36,7 +36,7 @@
       </div>
     </div>
 
-    <% if defined?(@user.errors) || flash[:notice] || flash[:warning] %>
+    <% if defined?(@user.errors) || flash[:notice] || flash[:warning] || flash[:errors]%>
       <div class="row">
         <div class="col-12">
           <div class="static-width">

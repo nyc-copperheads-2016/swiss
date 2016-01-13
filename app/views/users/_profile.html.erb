@@ -1,13 +1,7 @@
-<h1><%= current_user.first_name %> <%=current_user.last_name%></h1>
-
+<h1 class="profile-name"><%= current_user.first_name %> <%=current_user.last_name%></h1>
 <ul class="no-list-style">
-
-  <li>Username: <%= current_user.username %></li>
-
-  <li>Email: <%= current_user.email %></li>
-
-  <li>Current Folders: <%= current_user.folders.count %></li>
-
-  <li>Current Bookmarks: <%= current_user.bookmarks.count %></li>
-
+  <li class="profile-meta">Username: <%= current_user.username %></li>
+  <li class="profile-meta">Email: <%= current_user.email %></li>
+  <li class="profile-meta">Current Folders: <%= current_user.folders.count %></li>
+  <li class="profile-meta">Current Bookmarks: <%= current_user.bookmarks.count %></li>
 </ul>

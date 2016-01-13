@@ -3,7 +3,7 @@
     <ul class="no-list-style center">
       <li><%= link_to folder.name, folder_path(folder), id: "folder-name", class: "link folder white" %></li>
       <% unless folder.name == current_user.username %>
-        <li class="inline"><%= link_to "edit", edit_folder_path(folder), class: "link" %>
+        <li id="folder-edit" class="inline"><%= link_to "edit", edit_folder_path(folder), class: "link" %>
         |
         <li class="inline right"><%= link_to "delete", folder_path(folder), method: "delete", class: "link" %>
       <% end %>

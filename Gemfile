@@ -36,6 +36,9 @@ gem 'coderay'
 # gem 'unicorn'
 gem 'ancestry'
 gem 'bookmarks'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+gem 'bonsai-elasticsearch-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :production do

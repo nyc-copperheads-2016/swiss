@@ -2,11 +2,11 @@
 
   <%user_bookmarks.each do |resource|%>
 
-    <div id="<%=resource.id%>" class="bookmark">
+    <div id="bookmark" class="bookmark">
 
       <li><%=link_to resource.name, resource.bookmark.url, class: "link" %></li>
 
-      <li data-type="edit" class="inline"><%=link_to "edit", edit_user_bookmark_path(resource)%></li>
+      <li data-type="<%=resource.id%>" id="edit" class="inline"><%=link_to "edit", edit_user_bookmark_path(resource)%></li>
 
       <li class="inline"><%=link_to "delete", user_bookmark_path(resource), method:"delete"%></li>
 

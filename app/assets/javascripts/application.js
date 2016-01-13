@@ -170,13 +170,29 @@ function doneTyping () {
 }
 
 function getRegistration () {
-  ('#link white').on('click', function(){
+  $('#register').on('click', function(){
     event.preventDefault();
   $.ajax({
     method: "GET",
     url: "/users/new",
   }).done(function(response) {
-    $('#login_register').html(resonse);
+    $('#login_register').html(response);
+      }).fail(function(error) {
+        console.log("Error: " + error);
+        });
+  });
+}
+
+col-4 col-offset-4 center
+
+function postRegistration () {
+  $('.col-4 col-offset-4 center').on('submit', '#new_user', function(){
+    event.preventDefault();
+  $.ajax({
+    method: "POST",
+    url: "/users/new",
+  }).done(function(response) {
+    $('#login_register').html(response);
       }).fail(function(error) {
         console.log("Error: " + error);
         });
@@ -185,7 +201,7 @@ function getRegistration () {
 
 
 $(document).ready(function() {
-
+  getRegistration();
   renderFolderForm();
   bookmarkMouseover();
   displayFolderBookmarks();

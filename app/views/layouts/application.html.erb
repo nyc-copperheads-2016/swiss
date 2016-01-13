@@ -24,9 +24,8 @@
                       <li class="inline white">Welcome back <%= link_to current_user.username, user_bookmarks_path, class: "white" %>!</li>
                       <li class="inline"><%= link_to 'Log out', logout_path, class: "link white" %></li>
                     <% else %>
-                      <li class="inline"><%= link_to 'Join ', new_user_path, class: "link white" %></li>
-                      <li class="inline white"> | </li>
-                      <li class="inline"><%= link_to ' Log In', login_path, class: "link white" %></li>
+                      <li class="inline"><%= link_to 'Join', new_user_path, class: "link white", id: "register" %></li>
+                      <li class="inline"><%= link_to 'Log In', login_path, class: "link white" %></li>
                     <% end %>
                   </ul>
                 </nav>

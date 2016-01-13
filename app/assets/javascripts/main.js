@@ -5,7 +5,7 @@ function newSnippit() {
       method: "GET",
       url: $(this).attr('href')
     }).then(function(result) {
-      var newSnippitForm = $(result).filter('#new-snippit').html();
+      var newSnippitForm = $(result).find('#new-snippit').html();
       $('#snippits-container').html(newSnippitForm);
     });
   });
@@ -19,7 +19,7 @@ function editSnippit() {
         method: "GET",
         url: $(this).attr('href')
       }).then(function(result) {
-        var editSnippitForm = $(result).filter('#edit-snippit').html();
+        var editSnippitForm = $(result).find('#edit-snippit').html();
         $('#snippits-container').html(editSnippitForm);
       });
     });
@@ -33,7 +33,7 @@ function showSnippit() {
       method: "GET",
       url: $(this).attr('href')
     }).then(function(result) {
-      var snippit = $(result).filter('#snippit').html();
+      var snippit = $(result).find('#snippit').html();
       $('#snippits-container').html(snippit);
     });
   });
@@ -67,7 +67,7 @@ function renderFolderForm() {
     method: "GET",
     url: "/folders/new"
   }).then(function(result) {
-    var newFolder = $(result).filter('#new-folder').html();
+    var newFolder = $(result).find('#new-folder').html();
     $('#user-profile-new-folder').html(newFolder);
   });
 }
@@ -83,7 +83,7 @@ function displayFolderBookmarks() {
         url: $(this).attr('href')
       }).then(function(result) {
         var folderContent = $(result).filter('#folder-bookmarks-show').html();
-        $('#user-dash-folder-display').html(folderContent);
+        $('#user-dash-folder-display').find(folderContent);
       }).then(function() {
         bookmarkMouseover();
         editBookmark();
@@ -103,7 +103,7 @@ function editBookmark() {
         method: "GET",
         url: '/user_bookmarks/' + id + '/edit'
       }).then(function(response){
-        var editBookmarkForm = $(response).filter('#edit-bookmark').html();
+        var editBookmarkForm = $(response).find('#edit-bookmark').html();
         console.log(editBookmarkForm);
         // var id = $(response).find(".edit_user_bookmark input").last().val();
         // var editForm = $(response).find(".edit_user_bookmark");
@@ -155,7 +155,7 @@ function doneTyping () {
     url: "/",
     data: {q: $('#search-field').val()}
   }).then(function(result) {
-    var returned = $(result).filter('#search-results').html();
+    var returned = $(result).find('#search-results').html();
     $('#search-results').html(returned);
 
     $("*#search-result-link").each(function() {

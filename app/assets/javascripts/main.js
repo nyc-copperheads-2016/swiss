@@ -164,7 +164,7 @@ function getRegistration () {
 
 $(document).ready(function() {
   getRegistration();
-  renderFolderForm();
+  // renderFolderForm();
   bookmarkMouseover();
   displayFolderBookmarks();
   newBookmarkForm();

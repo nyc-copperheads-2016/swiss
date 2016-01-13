@@ -42,7 +42,6 @@ function showSnippit() {
 // render single bookmark meta data
 function bookmarkMouseover() {
   $(document).on('mouseenter', '.bookmark', function() {
-    console.log('mouseenter', this);
     var bookmark = $(this).html();
     var aTag = $(bookmark).filter('#link').html();
     var url = $(aTag).attr('href');
@@ -50,9 +49,7 @@ function bookmarkMouseover() {
       method: "GET",
       url: url
     }).then(function(result) {
-      console.log('then res', result)
       var userBookmark = $(result).find('#user-bookmark-show').html();
-      console.log('userBookmark', userBookmark);
       $("#user-dash-bookmark-meta-display").html(userBookmark);
     }).then(function() {
       newSnippit();

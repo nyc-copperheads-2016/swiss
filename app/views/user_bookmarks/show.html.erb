@@ -1,18 +1,25 @@
 <div id="user-bookmark-show" class="col-4 col-offset-4 static-width">
-
-  <ul class="no-list-style">
-
-    <li><h1 class="bookmark-meta-name">Name: <%= @user_bookmark.name %></h1><li>
-
-    <li><p class="bookmark-meta-url">URL: <%= @user_bookmark.bookmark.url %></p></li>
-
-    <li><p class="bookmark-meta-folder">Folder: <%= @user_bookmark.folder.name %></p></li>
-
-  </ul>
-
-  <div class="snippits-container">
-
+  <div class="bookmark-meta">
+    <ul class="no-list-style">
+      <li><h1 class="bookmark-meta-name">Name: <%= @user_bookmark.name %></h1><li>
+      <li><p class="bookmark-meta-url">URL: <%= @user_bookmark.bookmark.url %></p></li>
+      <li><p class="bookmark-meta-folder">Folder: <%= @user_bookmark.folder.name %></p></li>
+      <li><p class="bookmark-meta-folder">Snippits: <%= @user_bookmark.snippits.count %></p></li>
+    </ul>
   </div>
-
+  <div id="snippits-container" class="snippits-container">
+    <div class="center add-snippit">
+      <%= link_to "Add Snippit", new_user_bookmark_snippit_path(@user_bookmark), id: "new-snippit", class: "link" %>
+    </div>
+    <% @user_bookmark.snippits.each do |snippit| %>
+      <div class="snippit-div">
+        <ul class="no-list-style">
+          <li><%= link_to snippit.name, user_bookmark_snippit_path(snippit.user_bookmark, snippit), id: "show-snippit", class: "link" %>
+          <li class="inline"><%= link_to "edit", edit_user_bookmark_snippit_path(snippit.user_bookmark, snippit), id: "edit-snippit", class: "link" %>
+          |
+          <li class="inline"><%= link_to "delete", user_bookmark_snippit_path(snippit.user_bookmark, snippit), method: "delete", class: "link" %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
 </div>
-

@@ -24,12 +24,13 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update_attribute(:bookmark_file, params[:user][:bookmark_file])
-    if @user.save
-      redirect_to user_bookmarks_path
-    else
-      redirect_to user_bookmarks_path
+    begin
+      @user.update_attribute(:bookmark_file, params[:user][:bookmark_file])
+    rescue StandardError => e
+      puts e
+      flash[:warning] = "Could not process upload file"
     end
+    redirect_to user_bookmarks_path
   end
 
   def destroy

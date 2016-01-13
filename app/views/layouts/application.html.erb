@@ -36,7 +36,7 @@
       </div>
     </div>
 
-    <% if defined?(@user.errors) %>
+    <% if defined?(@user.errors) || flash[:notice] || flash[:warning] || flash[:error]%>
       <div class="row">
         <div class="col-12">
           <div class="static-width">
@@ -45,6 +45,9 @@
                 <% @user.errors.full_messages.each do |msg| %>
                   <li><%= msg %></li>
                 <% end %>
+                <li><%= flash[:notice] %></li>
+                <li><%= flash[:warning] %></li>
+                <li><%= flash[:error] %></li>
               </ul>
             </div>
           </div>

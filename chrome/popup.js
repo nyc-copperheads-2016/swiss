@@ -1,10 +1,10 @@
-var getSessionPath = "http://localhost:3000/loggedin";
-var postLoginPath = 'http://localhost:3000/login';
-var getLoginFormPath = 'http://localhost:3000/chrome_new';
-var getOpenTabPath = "http://localhost:3000/user_bookmarks";
-var getUrlNamePath =  "http://localhost:3000/chrome";
-var postBookmarkPath = 'http://localhost:3000/chrome_create';
-var getLoginLinkPath = "http://localhost:3000/mlogin";
+var getSessionPath = "https://warm-wildwood-8200.herokuapp.com/loggedin";
+var postLoginPath = 'https://warm-wildwood-8200.herokuapp.com/login';
+var getLoginFormPath = 'https://warm-wildwood-8200.herokuapp.com/chrome_new';
+var getOpenTabPath = "https://warm-wildwood-8200.herokuapp.com/user_bookmarks";
+var getUrlNamePath =  "https://warm-wildwood-8200.herokuapp.com/chrome";
+var postBookmarkPath = 'https://warm-wildwood-8200.herokuapp.com/chrome_create';
+var getLoginLinkPath = "https://warm-wildwood-8200.herokuapp.com/mlogin";
 
 function loggedIn() {
 $.get(getSessionPath, function(data) {

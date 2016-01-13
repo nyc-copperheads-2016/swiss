@@ -183,25 +183,7 @@ function getRegistration () {
   });
 }
 
-function postRegistration() {
-  $('#ajax').on('submit', '#new_user', function(){
-    debugger
-    event.preventDefault();
-  $.ajax({
-    method: "POST",
-    url: "/users",
-    data: $(event.target).serialize()
-  }).done(function(response) {
-    $('#ajax').html(response);
-      }).fail(function(error) {
-        console.log("Error: " + error);
-        });
-  });
-}
-
-
 $(document).ready(function() {
-  postRegistration();
   getRegistration();
   renderFolderForm();
   bookmarkMouseover();
@@ -209,6 +191,7 @@ $(document).ready(function() {
   newBookmarkForm();
   editBookmark();
 // search bar logic
+
 
   var typingTimer;
   var doneTypingInterval = 0;

@@ -13,10 +13,7 @@ class User < ActiveRecord::Base
 
   has_attached_file :bookmark_file
   validates_attachment_content_type :bookmark_file, content_type:["text/html"]
-
-
   around_update :spit_out_bookmarks
-  # before_update validates :file, attachment_presence: true
   private
 
   def spit_out_bookmarks

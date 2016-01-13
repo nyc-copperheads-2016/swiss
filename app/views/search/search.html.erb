@@ -1,58 +1,82 @@
-<div class="row">
-  <div class="main-nav col-4 col-offset-4 center">
-    <nav>
-      <ul class="no-list-style">
-        <% if logged_in? %>
-          <li class="inline">Welcome back <%= link_to current_user.username, user_bookmarks_path %>!</li>
-          <li class="inline"><%= link_to 'Log out', logout_path, class: "link" %></li>
-        <% else %>
-          <li class="inline"><%= link_to 'Join ', new_user_path, class: "link" %></li>
-          <li class="inline"> | </li>
-          <li class="inline"><%= link_to ' Log In', login_path, class: "link" %></li>
-        <% end %>
-      </ul>
-    </nav>
-  </div>
-</div>
-
-<div class="row">
-  <div class="static-width">
-    <div class="col-8 col-offset-2 center search-bar">
-      <%= render 'form' %>
+  <div class="row">
+    <div class="main-nav col-8 col-offset-2 center">
+      <nav>
+        <ul class="no-list-style">
+          <% if logged_in? %>
+            <li class="inline welcome-banner">Welcome Back <%= link_to current_user.username.capitalize, user_bookmarks_path, class: "link" %>! </li>
+            <li class="inline welcome-banner"><%= link_to 'Log out', logout_path, class: "link" %></li>
+          <% else %>
+            <li class="inline welcome-banner"><%= link_to 'Join ', new_user_path, class: "link" %></li>
+            <li class="inline welcome-banner"> | </li>
+            <li class="inline welcome-banner"><%= link_to ' Log In', login_path, class: "link" %></li>
+          <% end %>
+        </ul>
+      </nav>
     </div>
   </div>
-</div>
 
-<% if @search_results %>
-  <div id="search-results" class="row col-6 col-offset-3 search-results no-padding">
-    <% @search_results.each do |bookmark| %>
-      <div class="row">
-        <div class="col-10">
-          <%= link_to current_user.user_bookmarks.find_by(bookmark: bookmark).name, bookmark.url %>
-        </div>
-        <div class="col-2">
-          <%= link_to "preview", bookmark.url, id: "search-result-link" %>
-        </div>
+  <div class="row">
+    <div class="static-width">
+      <div class="col-8 col-offset-2 center search-bar">
+        <%= render 'form' %>
       </div>
-    <% end %>
-
-    <!-- <div class="center">
-      <p>Can't find what you're looking for? Try continuing your search on <%= link_to "Google.com" %></p>
-    </div> -->
-
+    </div>
   </div>
-<% else %>
-  <div class="center">
-    <h1>Looks like we were unable to find what you were looking for in your existing bookmarks, please continue your search on GOOGLE.</h1>
-    <%= link_to "Google", "www.google.com" %>
-  </div>
-<% end %>
 
+  <% if @search_results %>
+    <div id="search-results" class="row col-6 col-offset-3 search-results no-padding">
+      <% @search_results.each do |bookmark| %>
+        <div class="row">
+          <div class="col-10">
+            <%= link_to current_user.user_bookmarks.find_by(bookmark: bookmark).name, bookmark.url, class: "link white search-result" %>
+          </div>
+          <div class="col-2 right">
+            <%= link_to "preview", bookmark.url, id: "search-result-link", class: "link white search-result" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="center">
+      <h1>Looks like we were unable to find what you were looking for in your existing bookmarks, please continue your search on GOOGLE.</h1>
+      <%= link_to "Google", "www.google.com" %>
+    </div>
+  <% end %>
+
+
+
+  <div class="row">
+    <div class="static-width center">
+      <div id="preview-frame" class="col-10 col-offset-1 center preview-frame">
+      </div>
+    </div>
+  </div>
+  <div class="row center">
+    <p class="disclaimer">We're dedicated to bringing you a great search experience but sometimes websites just don't play nicely, we're working hard to ensure we all get along.</p>
+  </div>
+<!-- </div> -->
 
 <div class="row">
-  <div class="static-width center">
-    <div id="preview-frame" class="col-10 col-offset-1 center preview-frame">
+  <div class="col-12 dev-bio">
+    <div class="col-10 col-offset-1 center">
+      <h1 class="dev-bio-header white"> Meet The Team Behind SWISS</h1>
+      <div class="col-3">
+        <%= image_tag("chrisl.png", class: "dev-photo") %>
+        <p class="white">Christopher Lee</p>
+      </div>
+      <div class="col-3">
+        <%= image_tag("james.png", class: "dev-photo") %>
+        <p class="white">James Kirkpatrick</p>
+      </div>
+      <div class="col-3">
+        <%= image_tag("chriss.png", class: "dev-photo") %>
+        <p class="white">Christopher Savage</p>
+      </div>
+      <div class="col-3">
+        <%= image_tag("bruno.png", class: "dev-photo") %>
+        <p class="white">Bruno Zatta</p>
+      </div>
     </div>
-    <p>We're dedicated to bringing you a great search experience but sometimes websites just don't play nicely, we're working hard</p>
   </div>
 </div>
+

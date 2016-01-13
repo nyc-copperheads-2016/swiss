@@ -72,6 +72,21 @@ html, body {
   height: 100vh;
 }
 
+.dev-bio {
+  background: #232323;
+  padding: 1rem 0 4rem 0;
+}
+
+.dev-bio-header {
+  font-weight: 100;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.dev-photo {
+  width: 70%;
+}
+
 /********************
 desktop
 ********************/

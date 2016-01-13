@@ -2,12 +2,17 @@
   background: #111111;
 }
 
+.welcome-banner {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
 .main-nav {
-  margin-top: 1.4rem;
+  margin: 6rem 0;
 }
 
 .footer {
   font-size: .75rem;
   background: #111111;
-  padding-top: 10rem;
+  padding: 1rem;
 }

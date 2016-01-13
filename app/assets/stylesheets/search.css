@@ -1,8 +1,26 @@
-.search-results {
-  /*margin: 2rem 0;*/
-  background: #232323;
+.search-result {
+  margin: 4rem 0;
+  font-size: .75rem;
 }
 
-.search-bar {
+.search-results {
+  background: #232323;
+  padding: 0 1rem;
+}
+
+.search-results a {
+
+}
+
+
+.jumbotron {
+  background: url("banner.png");
+}
+
+.preview-frame {
   margin-top: 2rem;
+}
+
+.disclaimer {
+  font-size: .75rem;
 }

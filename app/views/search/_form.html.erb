@@ -1,5 +1,5 @@
 <%= form_for root_path, method: :get do |f| %>
 
-  <%= text_field_tag :q, params[:q], placeholder: "Search for", id: "search-field", class: "form-field" %>
+  <%= text_field_tag :q, params[:q], placeholder: "Search for", id: "search-field", class: "form-field", autocomplete:"off" %>
 
 <% end %>

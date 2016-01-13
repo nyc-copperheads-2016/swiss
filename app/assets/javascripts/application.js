@@ -122,9 +122,11 @@ function editBookmark() {
         method: "GET",
         url: '/user_bookmarks/' + id + '/edit'
       }).then(function(response){
-        var id = $(response).find(".edit_user_bookmark input").last().val();
-        var editForm = $(response).find(".edit_user_bookmark");
-         $("#user-dash-bookmark-meta-display").html(editForm);
+        var editBookmarkForm = $(response).filter('#edit-bookmark').html();
+        console.log(editBookmarkForm);
+        // var id = $(response).find(".edit_user_bookmark input").last().val();
+        // var editForm = $(response).find(".edit_user_bookmark");
+         $("#user-dash-bookmark-meta-display").html(editBookmarkForm);
       }).fail(function(errors){
         console.log(errors);
       });
@@ -171,7 +173,10 @@ function doneTyping () {
 
 $(document).ready(function() {
 
-  renderFolderForm();
+  if(window.location.pathname == '/user_bookmarks'){
+    renderFolderForm();
+  }
+
   bookmarkMouseover();
   displayFolderBookmarks();
   newBookmarkForm();

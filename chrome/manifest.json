@@ -12,7 +12,7 @@
     "default_icon": "icon128.png",
     "default_popup": "popup.html"
   },
-  "author": ["Arcangelo Petretta", "Jack Huang", "Ryan Lesson", "Eliza Dunaway" ],
+  "author": ["Chris L Savage", "James Kirkpatrick", "Bruno Zatta", "Christopher Lee" ],
   "content_scripts": [
         {
         "matches": [

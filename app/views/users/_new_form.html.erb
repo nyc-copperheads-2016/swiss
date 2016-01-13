@@ -1,5 +1,5 @@
-<%= form_for @user do |f| %>
-
+<%= form_for @user, html: {id: :new_user } do |f|%>
+  
   <ul class="no-list-style">
 
     <li><%= f.text_field(:first_name, placeholder: "First Name", class: "form-field") %></li>

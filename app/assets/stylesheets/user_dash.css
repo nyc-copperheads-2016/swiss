@@ -16,8 +16,6 @@
 
 .user-profile {
   padding: 1rem;
-  /*background: #232323;*/
-  /*color: #fff;*/
 }
 
 .profile-name {
@@ -45,9 +43,8 @@
 }
 
 .bookmark:hover {
-  background: #111111;
+  background: #6b6b6b;
 }
-
 
 #modular-user-nav-tab {
   margin: 0;
@@ -61,7 +58,6 @@
 
 .bookmark-meta {
   padding: 1rem;
-  /*color: #fff;*/
 }
 
 .bookmark-meta-name {
@@ -74,20 +70,4 @@
 
 .user-dash-nav {
   margin-top: -1rem;
-}
-
-.user-dash-column-1 {
-  /*background: #232323;*/
-}
-
-.user-dash-column-2 {
-  /*background: #232323;*/
-}
-
-.user-dash-column-2 a {
-  /*color: #fff;*/
-}
-
-.user-dash-column-3 {
-  /*background: #232323;*/
 }

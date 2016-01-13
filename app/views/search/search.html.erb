@@ -1,39 +1,39 @@
 <div class="row">
-
-  <div class="static-width">
-
-    <div class="col-8 col-offset-2 center search-bar">
-
-      <%= render 'form' %>
-
-    </div>
-
+  <div class="main-nav col-4 col-offset-4 center">
+    <nav>
+      <ul class="no-list-style">
+        <% if logged_in? %>
+          <li class="inline">Welcome back <%= link_to current_user.username, user_bookmarks_path %>!</li>
+          <li class="inline"><%= link_to 'Log out', logout_path, class: "link" %></li>
+        <% else %>
+          <li class="inline"><%= link_to 'Join ', new_user_path, class: "link" %></li>
+          <li class="inline"> | </li>
+          <li class="inline"><%= link_to ' Log In', login_path, class: "link" %></li>
+        <% end %>
+      </ul>
+    </nav>
   </div>
+</div>
 
+<div class="row">
+  <div class="static-width">
+    <div class="col-8 col-offset-2 center search-bar">
+      <%= render 'form' %>
+    </div>
+  </div>
 </div>
 
 <% if @search_results %>
-
   <div id="search-results" class="row col-6 col-offset-3 search-results no-padding">
-
     <% @search_results.each do |bookmark| %>
-
       <div class="row">
-
         <div class="col-10">
-
           <%= link_to current_user.user_bookmarks.find_by(bookmark: bookmark).name, bookmark.url %>
-
         </div>
-
         <div class="col-2">
-
           <%= link_to "preview", bookmark.url, id: "search-result-link" %>
-
         </div>
-
       </div>
-
     <% end %>
 
     <!-- <div class="center">
@@ -41,25 +41,18 @@
     </div> -->
 
   </div>
-
 <% else %>
-
   <div class="center">
     <h1>Looks like we were unable to find what you were looking for in your existing bookmarks, please continue your search on GOOGLE.</h1>
     <%= link_to "Google", "www.google.com" %>
   </div>
-
 <% end %>
 
 
 <div class="row">
-
   <div class="static-width center">
-
     <div id="preview-frame" class="col-10 col-offset-1 center preview-frame">
-
     </div>
     <p>We're dedicated to bringing you a great search experience but sometimes websites just don't play nicely, we're working hard</p>
   </div>
-
 </div>

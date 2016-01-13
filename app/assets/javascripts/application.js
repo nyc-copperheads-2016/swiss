@@ -169,6 +169,20 @@ function doneTyping () {
   });
 }
 
+function getRegistration () {
+  ('#link white').on('click', function(){
+    event.preventDefault();
+  $.ajax({
+    method: "GET",
+    url: "/users/new",
+  }).done(function(response) {
+    $('#login_register').html(resonse);
+      }).fail(function(error) {
+        console.log("Error: " + error);
+        });
+  });
+}
+
 
 $(document).ready(function() {
 

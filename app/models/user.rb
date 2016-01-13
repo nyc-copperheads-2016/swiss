@@ -11,8 +11,8 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
   validates :password, confirmation: true
 
-  # has_attached_file :bookmark_file
-  # validates_attachment_content_type :bookmark_file, content_type:["text/html"]
+  has_attached_file :bookmark_file
+  validates_attachment_content_type :bookmark_file, content_type:["text/html"]
 
 
   around_update :spit_out_bookmarks

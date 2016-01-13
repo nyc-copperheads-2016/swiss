@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
 
 
   around_update :spit_out_bookmarks
-
+  before_update validates :file, attachment_presence: true
   private
 
   def spit_out_bookmarks
@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
       if node.tags.nil?
         UserBookmark.where({name: node.title, bookmark: bookmark, user: self, folder: root}).first_or_create
       else
-        node.tags.split(",").each_with_index do |fold, index|
+        node.tags.split(/\S,\S/).each_with_index do |fold, index|
           if index == 0
             @target = root.children.where({name: fold, user: self}).first_or_create
           else

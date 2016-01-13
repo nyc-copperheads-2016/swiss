@@ -1,3 +1,29 @@
 .snippits-container {
-  background: red;
+  margin: 0;
+}
+
+.snippit-content {
+  height: 10rem;
+}
+
+.snippit-div {
+  padding: 0 1rem;
+  border-top: 1px solid #E7E7E9;
+  border-bottom: 1px solid #E7E7E9;
+}
+
+.add-snippit {
+  margin: 1rem;
+}
+
+.snippit {
+  padding: 1rem;
+}
+
+.snippit-name {
+  font-size: 1.25rem;
+}
+
+.snippit-meta {
+  font-size: .75rem;
 }

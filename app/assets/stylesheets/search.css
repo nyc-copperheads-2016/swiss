@@ -1,7 +1,8 @@
 .search-results {
-  margin: 2rem 0;
+  /*margin: 2rem 0;*/
+  background: #232323;
 }
 
-/*.search-bar {
+.search-bar {
   margin-top: 5rem;
-}*/
+}

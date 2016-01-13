@@ -1,5 +1,5 @@
 .header {
-  background: #000;
+  background: #111111;
 }
 
 .main-nav {
@@ -8,6 +8,6 @@
 
 .footer {
   font-size: .75rem;
-  background: #000;
+  background: #111111;
   padding-top: 10rem;
 }

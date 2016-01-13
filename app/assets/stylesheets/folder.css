@@ -1,5 +1,5 @@
 .user-profile-folders {
-  background: #232323;
+  /*background: #1c1b1b;*/
 }
 
 .folder-form-name {
@@ -10,6 +10,11 @@
   padding: 0 1rem;
   border-top: 1px solid #f7f7f7;
   border-bottom: 1px solid #f7f7f7;
+  /*color: #fff;*/
+}
+
+.folder-div a {
+  /*color: #dbdbdb;*/
 }
 
 .folder-div:hover {
@@ -18,7 +23,7 @@
 
 .folder {
   font-style: bold;
-  color: #fff;
+  /*color: #fff;*/
 }
 
 .mondify {

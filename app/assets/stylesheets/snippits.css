@@ -1,5 +1,10 @@
 .snippits-container {
   margin: 0;
+  color: #fff;
+}
+
+.snippits-container a {
+  color: #fff;
 }
 
 .snippit-content {

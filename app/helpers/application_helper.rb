@@ -1,17 +1,22 @@
 module ApplicationHelper
 
-  def self.search(results, query)
-    found_records = []
-    results.collect do |bookmark|
-      if bookmark.content.include?(query.downcase)
-        found_records << bookmark
+  def find_user_records(current_user, results)
+    user_bookmark_ids = current_user.user_bookmarks.map {|bookmark| bookmark.id}
+    array = []
+    user_bookmark_ids.each do |id|
+      results.each do |bookmark| 
+        array << bookmark if bookmark.id == id
       end
     end
-    found_records
+      return array
   end
 
   def self.clean(html_string)
     remove_all_white_space_between_tags(condense_whitespace(html_string)).strip
+  end
+
+  def self.current_user_id
+    session[:user_id] if session
   end
 
   private

@@ -1,7 +1,7 @@
 <div id="snippit" class="col-4 col-offset-4 static-width">
   <div class="snippit">
     <h1 class="snippit-name"><%= @snippit.name %></h1>
-    <h2 class="snippit-meta"><%= @snippit.updated_at %></h2>
+    <h2 class="snippit-meta"><%= @snippit.updated_at.strftime("%B %d, %Y") %></h2>
     <p><%= markdown(@snippit.content) %></p>
   </div>
 </div>

@@ -30,6 +30,9 @@ class FoldersController < ApplicationController
 
   def edit
     @folder = Folder.find_by(id: params[:id])
+    if request.xhr?
+      render layout: false
+    end
   end
 
   def update

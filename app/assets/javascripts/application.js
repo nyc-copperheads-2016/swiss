@@ -183,16 +183,16 @@ function getRegistration () {
   });
 }
 
-col-4 col-offset-4 center
-
-function postRegistration () {
-  $('.col-4 col-offset-4 center').on('submit', '#new_user', function(){
+function postRegistration() {
+  $('#ajax').on('submit', '#new_user', function(){
+    debugger
     event.preventDefault();
   $.ajax({
     method: "POST",
-    url: "/users/new",
+    url: "/users",
+    data: $(event.target).serialize()
   }).done(function(response) {
-    $('#login_register').html(response);
+    $('#ajax').html(response);
       }).fail(function(error) {
         console.log("Error: " + error);
         });
@@ -201,6 +201,7 @@ function postRegistration () {
 
 
 $(document).ready(function() {
+  postRegistration();
   getRegistration();
   renderFolderForm();
   bookmarkMouseover();

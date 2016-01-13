@@ -119,6 +119,7 @@ function editBookmark() {
       event.preventDefault();
       var id = $(this).data().type
       $.ajax({
+
         method: "GET",
         url: '/user_bookmarks/' + id + '/edit'
       }).then(function(response){

@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
 
 
   around_update :spit_out_bookmarks
-  before_update validates :file, attachment_presence: true
+  # before_update validates :file, attachment_presence: true
   private
 
   def spit_out_bookmarks

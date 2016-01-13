@@ -6,10 +6,14 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
 
   resources :users, only:[:new, :create, :show, :update]
-  resources :user_bookmarks
+  resources :user_bookmarks do
+    resources :snippits
+  end
+
   get 'mobile' => 'user_bookmarks#chrome'
 
   resources :folders
+
 
   get 'mobile' => 'user_bookmarks#chrome'
 

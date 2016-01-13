@@ -15,6 +15,49 @@
 
 //= require_tree .
 
+
+function newSnippit() {
+  $('#new-snippit').on("click", function(event) {
+    event.preventDefault();
+    $.ajax({
+      method: "GET",
+      url: $(this).attr('href')
+    }).then(function(result) {
+      var newSnippitForm = $(result).filter('#new-snippit').html();
+      $('#snippits-container').html(newSnippitForm);
+    });
+  });
+}
+
+function editSnippit() {
+  $('*#edit-snippit').each(function() {
+    $(this).on("click", function(event) {
+      event.preventDefault();
+      $.ajax({
+        method: "GET",
+        url: $(this).attr('href')
+      }).then(function(result) {
+        var editSnippitForm = $(result).filter('#edit-snippit').html();
+        $('#snippits-container').html(editSnippitForm);
+      });
+    });
+  });
+}
+
+function showSnippit() {
+  $('#show-snippit').on("click", function(event) {
+    event.preventDefault();
+    $.ajax({
+      method: "GET",
+      url: $(this).attr('href')
+    }).then(function(result) {
+      var snippit = $(result).filter('#snippit').html();
+      $('#snippits-container').html(snippit);
+    });
+  });
+}
+
+
 // render single bookmark meta data
 function bookmarkMouseover() {
   $('*#bookmark').each(function() {
@@ -28,6 +71,10 @@ function bookmarkMouseover() {
       }).then(function(result) {
         var userBookmark = $(result).filter('#user-bookmark-show').html();
         $("#user-dash-bookmark-meta-display").html(userBookmark);
+      }).then(function() {
+        newSnippit();
+        editSnippit();
+        showSnippit();
       });
     });
   });

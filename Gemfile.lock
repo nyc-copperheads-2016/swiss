@@ -56,6 +56,7 @@ GEM
       activesupport (>= 3.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
+    coderay (1.1.0)
     concurrent-ruby (1.0.0)
     daemons (1.2.3)
     database_cleaner (1.5.1)
@@ -158,6 +159,7 @@ GEM
     rake (10.4.2)
     rdoc (4.2.1)
       json (~> 1.4)
+    redcarpet (3.3.4)
     rspec-core (3.4.1)
       rspec-support (~> 3.4.0)
     rspec-expectations (3.4.0)
@@ -232,6 +234,7 @@ DEPENDENCIES
   bookmarks
   byebug
   capybara
+  coderay
   database_cleaner
   elasticsearch-model
   elasticsearch-rails
@@ -245,6 +248,7 @@ DEPENDENCIES
   pg (~> 0.15)
   rails (= 4.2.5)
   rails_12factor
+  redcarpet
   rspec-rails (~> 3.0)
   rspec_junit_formatter (= 0.2.2)
   sass-rails (~> 5.0)

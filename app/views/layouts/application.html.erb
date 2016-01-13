@@ -8,79 +8,48 @@
   </head>
   <body>
 
-    <div class="row">
-
-      <div class="col-10 col-offset-1">
-
-        <div class="static-width">
-
-
-          <div class="col-4 col-offset-4 center">
-
-            <h1><%= link_to "SWISS", root_path, class: "link" %></h1>
-
-          </div>
-
-          <div class="col-4 right">
-
-              <nav>
-
-                <ul class="no-list-style">
-
-                  <% if logged_in? %>
-
-                    <li class="inline">Welcome back <%= link_to current_user.username, user_bookmarks_path %>!</li>
-
-                    <li class="inline"><%= link_to 'Log out', logout_path, class: "link" %></li>
-
-                  <% else %>
-
-                    <li class="inline"><%= link_to 'Join', new_user_path, class: "link" %></li>
-
-                    <li class="inline"><%= link_to 'Log In', login_path, class: "link" %></li>
-
-                  <% end %>
-
-                </ul>
-
-              </nav>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <% if defined?(@user.errors) %>
-
-      <div class="row">
-
-        <div class="col-12">
-
+    <div class="header row">
+      <div class="header col-12">
+        <div class="col-10 col-offset-1">
           <div class="static-width">
 
             <div class="col-4 col-offset-4 center">
+              <h1><%= link_to "SWISS", root_path, class: "link white" %></h1>
+            </div>
 
-              <ul class="no-list-style">
-
-                <% @user.errors.full_messages.each do |msg| %>
-
-                  <li><%= msg %></li>
-
-                <% end %>
-
-              </ul>
-
+            <div class="main-nav col-4 right">
+                <nav>
+                  <ul class="no-list-style">
+                    <% if logged_in? %>
+                      <li class="inline">Welcome back <%= link_to current_user.username, user_bookmarks_path, class: "white" %>!</li>
+                      <li class="inline"><%= link_to 'Log out', logout_path, class: "link white" %></li>
+                    <% else %>
+                      <li class="inline"><%= link_to 'Join', new_user_path, class: "link white" %></li>
+                      <li class="inline"><%= link_to 'Log In', login_path, class: "link white" %></li>
+                    <% end %>
+                  </ul>
+                </nav>
             </div>
 
           </div>
-
         </div>
-
       </div>
+    </div>
 
+    <% if defined?(@user.errors) %>
+      <div class="row">
+        <div class="col-12">
+          <div class="static-width">
+            <div class="col-4 col-offset-4 center">
+              <ul class="no-list-style">
+                <% @user.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     <% end %>
 
     <%= yield %>

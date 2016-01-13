@@ -1,0 +1,22 @@
+.mardown {
+  background: #FFF7E3;
+}
+
+.markdown-meta-header {
+  font-size: 1.25rem;
+  margin: 1rem;
+}
+
+.markdown-meta-sub-header {
+  font-size: 1rem;
+  margin: 1rem;
+}
+
+.markdown-meta-markdown-tips {
+  padding: 0 1.5rem;
+  margin: 1rem;
+}
+
+.markdown-content {
+  margin: 1rem;
+}

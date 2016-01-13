@@ -30,7 +30,8 @@ gem 'hpricot_scrub'
 gem 'paperclip'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
-
+gem 'redcarpet'
+gem 'coderay'
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem 'ancestry'

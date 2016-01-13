@@ -1,0 +1,7 @@
+<%= form_for [@user_bookmark, @snippit] do |f| %>
+  <ul class="no-list-style center">
+    <li class="inline"><%= f.text_field :name, placeholder: "Name", class: "snippit-name form-field" %></li>
+    <li class="inline"><%= f.text_area :content, class: "left form-field snippit-content" %></li>
+    <li class="inline"><%= f.submit %></li>
+  </ul>
+<% end %>

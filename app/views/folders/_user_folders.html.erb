@@ -1,7 +1,7 @@
 <% user_folders.each do |folder| %>
   <div class="folder-div">
     <ul class="no-list-style center">
-      <li><%= link_to folder.name, folder_path(folder), id: "folder-name", class: "link folder white" %></li>
+      <li><%= link_to folder.name, folder_path(folder), id: "folder-name", class: "link folder" %></li>
       <% unless folder.name == current_user.username %>
         <li data-type="<%=folder.id%>" id="folderEdit" class="inline"><%= link_to "edit", edit_folder_path(folder), class: "link" %>
         |

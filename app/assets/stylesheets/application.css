@@ -64,16 +64,27 @@ html, body {
   border: 1px solid #232323;
 }
 
-.logout {
-  margin: 2rem 0;
-}
-
 .primary-blue {
   color: #5288CE
 }
 
 .main-content {
   height: 100vh;
+}
+
+.dev-bio {
+  background: #232323;
+  padding: 1rem 0 4rem 0;
+}
+
+.dev-bio-header {
+  font-weight: 100;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.dev-photo {
+  width: 70%;
 }
 
 /********************

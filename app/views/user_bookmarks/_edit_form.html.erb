@@ -1,0 +1,23 @@
+<ul id="form-identification" class="no-list-style center">
+
+  <%=form_for @user_bookmark do |f|%>
+
+    <li><%=f.text_field :name, required: true, placeholder: "Name", id: "url-name-form-field", class: "form-field" %></li>
+
+    <%=f.fields_for :folder do |h| %>
+
+      <li><%= h.collection_select(:folder_id, current_user.folders, :id, :name) %></li>
+
+    <% end %>
+
+    <%=f.fields_for :bookmark do |g|%>
+
+      <li><%=g.text_field "url", required: true, disabled: !@user_bookmark.new_record?, placeholder: "URL", id: "url-form-field", class: "form-field" %></li>
+
+    <%= submit_tag %>
+
+    <%end%>
+
+  <%end%>
+
+</ul>

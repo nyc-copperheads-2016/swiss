@@ -41,22 +41,25 @@ function showSnippit() {
 
 // render single bookmark meta data
 function bookmarkMouseover() {
-  $('*#bookmark').each(function() {
-    $(this).mouseover(function() {
-      var bookmark = $(this).html();
-      var aTag = $(bookmark).filter('#link').html();
-      var url = $(aTag).attr('href');
-      $.ajax({
-        method: "GET",
-        url: url
-      }).then(function(result) {
-        var userBookmark = $(result).filter('#user-bookmark-show').html();
-        $("#user-dash-bookmark-meta-display").html(userBookmark);
-      }).then(function() {
-        newSnippit();
-        editSnippit();
-        showSnippit();
-      });
+  $(document).on('mouseenter', '.bookmark', function() {
+    console.log('mouseenter', this);
+    var bookmark = $(this).html();
+    var aTag = $(bookmark).filter('#link').html();
+    var url = $(aTag).attr('href');
+    $.ajax({
+      method: "GET",
+      url: url
+    }).then(function(result) {
+      console.log('then res', result)
+      var userBookmark = $(result).find('#user-bookmark-show').html();
+      console.log('userBookmark', userBookmark);
+      $("#user-dash-bookmark-meta-display").html(userBookmark);
+    }).then(function() {
+      newSnippit();
+      editSnippit();
+      showSnippit();
+    }).fail(function(){
+      console.log(arguments);
     });
   });
 }
@@ -103,9 +106,13 @@ function editBookmark() {
         method: "GET",
         url: '/user_bookmarks/' + id + '/edit'
       }).then(function(response){
-        var id = $(response).find(".edit_user_bookmark input").last().val();
-        var editForm = $(response).find(".edit_user_bookmark");
-         $("#user-dash-bookmark-meta-display").html(editForm);
+        var editBookmarkForm = $(response).filter('#edit-bookmark').html();
+        console.log(editBookmarkForm);
+        // var id = $(response).find(".edit_user_bookmark input").last().val();
+        // var editForm = $(response).find(".edit_user_bookmark");
+         $("#user-dash-bookmark-meta-display").html(editBookmarkForm);
+      }).fail(function(errors){
+        console.log(errors);
       });
     });
   });
@@ -131,12 +138,14 @@ function editFolder(){
 function newBookmarkForm() {
   $('#user-dash-new-bookmark').on("click", function(event) {
     event.preventDefault();
+    console.log(event);
 
     $.ajax({
       method: "GET",
       url: "/user_bookmarks/new"
     }).then(function(result) {
-      var newBookmarkForm = $(result).filter('#new-bookmark').html();
+      console.log(result);
+      var newBookmarkForm = $(result).find('#new-bookmark').html();
       $('#modular-user-nav-tab').html(newBookmarkForm);
     });
   });

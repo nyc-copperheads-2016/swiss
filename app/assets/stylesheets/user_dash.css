@@ -3,8 +3,9 @@
 }
 
 .user-dash-nav-tab {
-  background: #5288CE;
-  border: 1px solid #76a3db;
+  background: #1c1b1b;
+  border-left: 1px solid #111111;
+  border-right: 1px solid #111111;
   height: 3.5rem;
 }
 
@@ -15,14 +16,22 @@
 
 .user-profile {
   padding: 1rem;
+  /*background: #232323;*/
+  /*color: #fff;*/
 }
 
-.user-profile-folders {
-  background: #EBEFF8;
+.profile-name {
+  font-weight: 100;
+  font-size: 1.5rem;
+}
+
+.profile-meta {
+  margin: .25rem;
+  font-size: .75rem;
 }
 
 .user-dash-column {
-  border: 1px solid #E7E7E9;
+  border: 1px solid #111111;
   overflow: scroll;
   height: 80vh;
 }
@@ -36,7 +45,7 @@
 }
 
 .bookmark:hover {
-  background: #EBEFF8;
+  background: #111111;
 }
 
 
@@ -52,6 +61,7 @@
 
 .bookmark-meta {
   padding: 1rem;
+  /*color: #fff;*/
 }
 
 .bookmark-meta-name {
@@ -60,4 +70,24 @@
 
 .bookmark-meta-url {
   font-size: .75rem;
+}
+
+.user-dash-nav {
+  margin-top: -1rem;
+}
+
+.user-dash-column-1 {
+  /*background: #232323;*/
+}
+
+.user-dash-column-2 {
+  /*background: #232323;*/
+}
+
+.user-dash-column-2 a {
+  /*color: #fff;*/
+}
+
+.user-dash-column-3 {
+  /*background: #232323;*/
 }

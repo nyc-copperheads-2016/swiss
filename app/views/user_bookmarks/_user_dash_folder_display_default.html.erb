@@ -6,9 +6,9 @@
 
       <li><%=link_to resource.name, resource.bookmark.url, class: "link" %></li>
 
-      <li data-type="<%=resource.id%>" id="edit" class="inline"><%=link_to "edit", edit_user_bookmark_path(resource)%></li>
-
-      <li class="inline"><%=link_to "delete", user_bookmark_path(resource), method:"delete"%></li>
+      <li data-type="<%=resource.id%>" id="edit" class="inline"><%=link_to "edit", edit_user_bookmark_path(resource), class: "link" %></li>
+      <li class="white inline"> | </li>
+      <li class="inline"><%=link_to "delete", user_bookmark_path(resource), method:"delete", class: "link" %></li>
 
       <li id="link" class="inline"><%=link_to "show", user_bookmark_path(resource), class: "invisible" %></li>
 

@@ -2,7 +2,7 @@
 
   <div class="static-width">
 
-    <div class="col-4 col-offset-4 center">
+    <div class="col-8 col-offset-2 center search-bar">
 
       <%= render 'form' %>
 
@@ -12,9 +12,9 @@
 
 </div>
 
-<% if !@search_results.nil? %>
+<% if @search_results %>
 
-  <div id="search-results" class="row col-8 col-offset-2 search-results">
+  <div id="search-results" class="row col-6 col-offset-3 search-results no-padding">
 
     <% @search_results.each do |bookmark| %>
 
@@ -36,10 +36,9 @@
 
     <% end %>
 
-    <div class="center">
-      <p>Can't find what you're looking for?</p>
-      <p>Try continuing your search on <%= link_to "Google.com" %></p>
-    </div>
+    <!-- <div class="center">
+      <p>Can't find what you're looking for? Try continuing your search on <%= link_to "Google.com" %></p>
+    </div> -->
 
   </div>
 

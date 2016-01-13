@@ -117,16 +117,17 @@ function editBookmark() {
   $('*#edit').each(function() {
     $(this).on('click', function(event) {
       event.preventDefault();
-      var id = $(this).data().type
+      var id = $(this).data().type;
       $.ajax({
 
         method: "GET",
         url: '/user_bookmarks/' + id + '/edit'
       }).then(function(response){
-        var id = $(response).find(".edit_user_bookmark input").last().val()
-         $("div li[data-type=" + id + "]").parent().html($(response).find(".edit_user_bookmark"))
+        var id = $(response).find(".edit_user_bookmark input").last().val();
+        var editForm = $(response).find(".edit_user_bookmark");
+         $("#user-dash-bookmark-meta-display").html(editForm);
       }).fail(function(errors){
-        console.log(errors)
+        console.log(errors);
       });
     });
   });
@@ -191,7 +192,6 @@ $(document).ready(function() {
   });
 
   doneTyping();
-
 
 
 });

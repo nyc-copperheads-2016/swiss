@@ -54,6 +54,8 @@ html, body {
   font-size: 1rem;
   margin: .5rem;
   text-align: center;
+  border-radius: 10px;
+  border: 1px solid #232323;
 }
 
 .form-body-field {
@@ -68,6 +70,10 @@ html, body {
 
 .primary-blue {
   color: #5288CE
+}
+
+.main-content {
+  height: 100vh;
 }
 
 /********************

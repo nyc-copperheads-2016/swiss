@@ -1,3 +1,7 @@
+.user-profile-folders {
+  /*background: #1c1b1b;*/
+}
+
 .folder-form-name {
   width: 35%;
 }
@@ -6,14 +10,20 @@
   padding: 0 1rem;
   border-top: 1px solid #f7f7f7;
   border-bottom: 1px solid #f7f7f7;
+  /*color: #fff;*/
+}
+
+.folder-div a {
+  /*color: #dbdbdb;*/
 }
 
 .folder-div:hover {
-  background: #fff;
+  background: #000;
 }
 
 .folder {
-  font-style: bold
+  font-style: bold;
+  /*color: #fff;*/
 }
 
 .mondify {

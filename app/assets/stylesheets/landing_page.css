@@ -1,7 +1,13 @@
 .header {
-  background: #232323;
+  background: #111111;
 }
 
 .main-nav {
-  margin-top: 1rem;
+  margin-top: 1.4rem;
+}
+
+.footer {
+  font-size: .75rem;
+  background: #111111;
+  padding-top: 10rem;
 }

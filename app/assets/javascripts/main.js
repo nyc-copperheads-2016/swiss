@@ -106,8 +106,22 @@ function editBookmark() {
         var id = $(response).find(".edit_user_bookmark input").last().val();
         var editForm = $(response).find(".edit_user_bookmark");
          $("#user-dash-bookmark-meta-display").html(editForm);
-      }).fail(function(errors){
-        console.log(errors);
+      });
+    });
+  });
+}
+
+function editFolder(){
+  $('*#folderEdit').each(function(){
+    $(this).on('click', function(event){
+      event.preventDefault();
+      var id = $(this).data().type;
+      $.ajax({
+        method: "GET",
+        url: '/folders/' + id + '/edit'
+      }).then(function(response){
+        var editForm = $(response).find(".edit_folder")
+        $("#user-dash-bookmark-meta-display").html(editForm);
       });
     });
   });
@@ -169,6 +183,7 @@ $(document).ready(function() {
   displayFolderBookmarks();
   newBookmarkForm();
   editBookmark();
+  editFolder();
 // search bar logic
   var typingTimer;
   var doneTypingInterval = 0;

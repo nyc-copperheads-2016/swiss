@@ -177,8 +177,10 @@ function getRegistration () {
 }
 
 $(document).ready(function() {
+  if (window.location.pathname == '/user_bookmarks') {
+          renderFolderForm();
+        }
   getRegistration();
-  // renderFolderForm();
   bookmarkMouseover();
   displayFolderBookmarks();
   newBookmarkForm();

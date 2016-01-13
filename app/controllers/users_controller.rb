@@ -21,7 +21,8 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attribute(:bookmark_file, params[:user][:bookmark_file])
+    @user.update_attribute(:bookmark_file, params[:user][:bookmark_file])
+    if @user.save
       redirect_to user_bookmarks_path
     else
       redirect_to user_bookmarks_path

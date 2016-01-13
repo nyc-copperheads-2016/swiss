@@ -29,6 +29,7 @@ function newSnippit() {
   });
 }
 
+
 function editSnippit() {
   $('*#edit-snippit').each(function() {
     $(this).on("click", function(event) {
@@ -105,6 +106,26 @@ function displayFolderBookmarks() {
         $('#user-dash-folder-display').html(folderContent);
       }).then(function() {
         bookmarkMouseover();
+        editBookmark();
+      });
+    });
+  });
+}
+
+// ajax the edit bookmark get request for the edit form
+function editBookmark() {
+  $('*#edit').each(function() {
+    $(this).on('click', function(event) {
+      event.preventDefault();
+      var id = $(this).data().type
+      $.ajax({
+        method: "GET",
+        url: '/user_bookmarks/' + id + '/edit'
+      }).then(function(response){
+        var id = $(response).find(".edit_user_bookmark input").last().val()
+         $("div li[data-type=" + id + "]").parent().html($(response).find(".edit_user_bookmark"))
+      }).fail(function(errors){
+        console.log(errors)
       });
     });
   });
@@ -153,7 +174,7 @@ $(document).ready(function() {
   bookmarkMouseover();
   displayFolderBookmarks();
   newBookmarkForm();
-
+  editBookmark();
 // search bar logic
 
   var typingTimer;
@@ -170,19 +191,6 @@ $(document).ready(function() {
 
   doneTyping();
 
-  $("li[data-type='edit']").on('click', function(event){
-    event.preventDefault();
-    var id = event.target.parentElement.parentElement.id;
-    $.ajax({
-      method: "GET",
-      url: "/user_bookmarks/" + id + "/edit"
-    }).then(function(response){
-      var id = $(response).find(".edit_user_bookmark input").last().val()
-       $("div #" + id).html($(response).find(".edit_user_bookmark"))
-       // saveSubmit(id);
-    }).fail(function(errors){
-      console.log(errors)
-    });
-  });
+
 
 });

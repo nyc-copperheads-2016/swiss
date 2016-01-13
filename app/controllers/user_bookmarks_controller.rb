@@ -52,6 +52,9 @@ class UserBookmarksController < ApplicationController
 
   def edit
     @user_bookmark = UserBookmark.find_by(id: params[:id])
+    if request.xhr?
+      render layout: false
+    end
   end
 
   def update

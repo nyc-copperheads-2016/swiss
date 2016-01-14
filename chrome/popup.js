@@ -1,10 +1,10 @@
-var getSessionPath = "https://warm-wildwood-8200.herokuapp.com/loggedin";
-var postLoginPath = 'https://warm-wildwood-8200.herokuapp.com/login';
-var getLoginFormPath = 'https://warm-wildwood-8200.herokuapp.com/chrome_new';
-var getOpenTabPath = "https://warm-wildwood-8200.herokuapp.com/user_bookmarks";
-var getUrlNamePath =  "https://warm-wildwood-8200.herokuapp.com/chrome";
-var postBookmarkPath = 'https://warm-wildwood-8200.herokuapp.com/chrome_create';
-var getLoginLinkPath = "https://warm-wildwood-8200.herokuapp.com/mlogin";
+var getSessionPath = "https://swissdbc.herokuapp.com/loggedin";
+var postLoginPath = 'https://swissdbc.herokuapp.com/login';
+var getLoginFormPath = 'https://swissdbc.herokuapp.com/chrome_new';
+var getOpenTabPath = "https://swissdbc.herokuapp.com/user_bookmarks";
+var getUrlNamePath =  "https://swissdbc.herokuapp.com/chrome";
+var postBookmarkPath = 'https://swissdbc.herokuapp.com/chrome_create';
+var getLoginLinkPath = "https://swissdbc.herokuapp.com/mlogin";
 
 function loggedIn() {
 $.get(getSessionPath, function(data) {

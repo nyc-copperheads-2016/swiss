@@ -30,6 +30,7 @@ class UsersController < ApplicationController
       puts e
       flash[:warning] = "Could not process upload file"
     end
+    flash[:notice] = "Successfully uploaded your bookmarks!"
     redirect_to user_bookmarks_path
   end
 

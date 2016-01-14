@@ -30,9 +30,10 @@ class UserBookmarksController < ApplicationController
     @folder = Folder.find(user_folder_params)
     @user_bookmark = current_user.user_bookmarks.build(name: user_bookmark_params, bookmark: @bookmark, folder: @folder)
     if @bookmark.save && @user_bookmark.save
+      flash[:notice] = "Successfully created this bookmark!"
       redirect_to user_bookmarks_path
     else
-      flash[:notice] = "Invalid Parameters, Please Try Again"
+      flash[:warning] = "Invalid Parameters, Please Try Again"
       render 'new'
     end
   end

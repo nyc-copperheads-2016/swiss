@@ -40,24 +40,22 @@ function showSnippit() {
 }
 
 // render single bookmark meta data
-function bookmarkMouseover() {
-  $(document).on('mouseenter', '.bookmark', function() {
-    var bookmark = $(this).html();
-    var aTag = $(bookmark).filter('#link').html();
-    var url = $(aTag).attr('href');
-    $.ajax({
-      method: "GET",
-      url: url
-    }).then(function(result) {
-      var userBookmark = $(result).find('#user-bookmark-show').html();
-      $("#user-dash-bookmark-meta-display").html(userBookmark);
-    }).then(function() {
-      newSnippit();
-      editSnippit();
-      showSnippit();
-    }).fail(function(){
-      console.log(arguments);
-    });
+function bookmarkMouseover(hoveredItem) {
+  var bookmark = $(hoveredItem).html();
+  var aTag = $(bookmark).filter('#link').html();
+  var url = $(aTag).attr('href');
+  $.ajax({
+    method: "GET",
+    url: url
+  }).then(function(result) {
+    var userBookmark = $(result).find('#user-bookmark-show').html();
+    $("#user-dash-bookmark-meta-display").html(userBookmark);
+  }).then(function() {
+    newSnippit();
+    editSnippit();
+    showSnippit();
+  }).fail(function(){
+    console.log(arguments);
   });
 }
 
@@ -182,7 +180,6 @@ $(document).ready(function() {
           renderFolderForm();
         }
   getRegistration();
-  bookmarkMouseover();
   displayFolderBookmarks();
   newBookmarkForm();
   editBookmark();
@@ -191,15 +188,25 @@ $(document).ready(function() {
 // search bar logic
   var typingTimer;
   var doneTypingInterval = 0;
-
   $('#search-field').on('keyup', function () {
     clearTimeout(typingTimer);
     typingTimer = setTimeout(doneTyping, doneTypingInterval);
   });
-
   $('#search-field').on('keydown', function () {
     clearTimeout(typingTimer);
   });
-
   doneTyping();
+// hover a bookmark logic
+  var hoverTimer;
+  var doneHoveringInterval = 500;
+  $(document).on('mouseenter', '.bookmark', function() {
+    clearTimeout(hoverTimer);
+    var bookmarkHoveredOver = this;
+    hoverTimer = setTimeout(function(){
+      bookmarkMouseover(bookmarkHoveredOver)
+    }, doneHoveringInterval);
+  });
+  $(document).on('mouseleave', '.bookmark', function() {
+    clearTimeout(hoverTimer);
+  });
 });

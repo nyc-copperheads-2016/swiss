@@ -1,6 +1,6 @@
 class Folder < ActiveRecord::Base
   has_ancestry :orphan_strategy => :adopt
-  has_many :user_bookmarks
+  has_many :user_bookmarks, dependent: :destroy
   has_many :bookmarks, through: :user_bookmarks
   belongs_to :user
 end

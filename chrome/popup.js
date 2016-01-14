@@ -34,7 +34,7 @@ function getHeader(){
       url: getLoginFormPath,
       method: 'GET'
     }).done(function(response){
-      $('body').html(response);
+      $('#body').html(response);
     }).fail(function(error) {
       console.log("Error: " + error);
       });
@@ -43,7 +43,7 @@ function getHeader(){
 
 function getLogin(){
 return $.get(getLoginLinkPath, function(form) {
-        $("body").html(form);
+        $("#body").html(form);
       });
 }
 
@@ -81,7 +81,7 @@ function setFormVals () {
         title = tab.title;
         $('#name').val(title);
       });
-    $("body").html(form);
+    $("#body").html(form);
     linkHome();
   });
 }
@@ -94,7 +94,7 @@ function postLink (){$("#bookmark_form").on('submit', function() {
     data: $(event.target).serialize()
   }).then(function(response) {
     console.log(response)
-   $("body").html(response);
+   $("#body").html(response);
    linkHome();
     }).fail(function(error) {
       console.log("Error: " + error);

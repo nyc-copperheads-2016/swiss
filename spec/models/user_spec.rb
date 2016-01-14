@@ -11,6 +11,8 @@ RSpec.describe User do
   it { should validate_presence_of(:password) }
   it { should validate_length_of(:password).is_at_least(6) }
   it { should validate_length_of(:username).is_at_least(3) }
+  it { should have_many(:user_bookmarks)}
+  it { should have_many(:folders)}
   it { should have_many(:bookmarks).through(:user_bookmarks) }
   it { should have_many(:user_bookmark_categories).through(:user_bookmarks) }
   it { should have_many(:categories).through(:user_bookmark_categories) }

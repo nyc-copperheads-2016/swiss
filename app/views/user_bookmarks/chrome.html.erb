@@ -2,15 +2,15 @@
 
   <% if logged_in? %>
 
-    <li class="inline" id="chrome_app">Welcome back <%= link_to current_user.username, "#" %>!</li>
+    <li class="inline" id="chrome_app">Welcome back <%= link_to current_user.username, "#", class: "chrome-link" %>!</li>
 
-    <li class="inline"><%= link_to 'Log out', logout_path, class: "link" %></li>
+    <li class="inline"><%= link_to 'Log out', logout_path, class: "white" %></li>
 
   <% else %>
 
-    <li class="inline"><%= link_to 'Join', new_user_path, class: "link" %></li>
+    <li class="inline"><%= link_to 'Join', new_user_path, class: "link chrome-link" %></li>
 
-    <li class="inline"><%= link_to 'Log In', login_path, class: "link" %></li>
+    <li class="inline"><%= link_to 'Log In', login_path, class: "link chrome-link" %></li>
 
   <% end %>
 

@@ -2,6 +2,23 @@
   background: #111111;
 }
 
+.col-13 {	
+  margin-bottom: -1em;
+  background: #111111;
+}
+
+.error-message {
+  color: #fff50c;
+}
+
+#notice-message {
+  color: #27bd40;
+}
+
+#warning-message {
+  color: #ff1a01;
+}
+
 .welcome-banner {
   font-size: 3rem;
   font-weight: 700;

@@ -10,7 +10,7 @@
   <body>
 
     <div class="header row">
-      <div class="header col-12">
+      <div class="header col-13">
         <div class="col-10 col-offset-1">
           <div class="static-width">
             <div class="col-5 header-links">
@@ -29,13 +29,13 @@
 
     <% if flash[:notice] || flash[:warning] || flash[:error] %>
       <div class="row">
-        <div class="col-12">
+        <div class="col-13">
           <div class="static-width">
-            <div class="col-4 col-offset-4 center">
+            <div class="col-12 center">
               <ul class="no-list-style">
-                <li><%= flash[:notice] %></li>
-                <li><%= flash[:warning] %></li>
-                <li><%= flash[:error] %></li>
+                <li id="notice-message"><%= flash[:notice] %></li>
+                <li id="warning-message"><%= flash[:warning] %></li>
+                <li class="err-message"><%= flash[:error] %></li>
               </ul>
             </div>
           </div>
@@ -45,12 +45,12 @@
 
     <% if defined?(@user.errors) %>
       <div class="row">
-        <div class="col-12">
+        <div class="col-13">
           <div class="static-width">
-            <div class="col-4 col-offset-4 center">
+            <div class="col-12 center">
               <ul class="no-list-style">
                 <% @user.errors.full_messages.each do |msg| %>
-                  <li><%= msg %></li>
+                  <li class="error-message"><%= msg %></li>
                 <% end %>
               </ul>
             </div>

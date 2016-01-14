@@ -26,11 +26,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     begin
       @user.update_attribute(:bookmark_file, params[:user][:bookmark_file])
+      flash[:notice] = "Successfully uploaded your bookmarks!"
     rescue StandardError => e
-      puts e
       flash[:warning] = "Could not process upload file"
     end
-    flash[:notice] = "Successfully uploaded your bookmarks!"
     redirect_to user_bookmarks_path
   end
 

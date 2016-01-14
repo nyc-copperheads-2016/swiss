@@ -2,7 +2,7 @@
 
   <%= form_for @folder do |f| %>
 
-    <li class="inline"><%= f.text_field :name, placeholder: "Folder Name", class: "folder-form-name form-field" %></li>
+    <li class="inline"><%= f.text_field :name, required: true, placeholder: "Folder Name", class: "folder-form-name form-field" %></li>
 
     <li class="inline"><%= f.collection_select(:id, current_user.folders, :id, :name, {}, class: "form-field") %></li>
 

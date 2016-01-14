@@ -1,4 +1,33 @@
 Rails.application.routes.draw do
+
+  root 'search#search'
+  get 'login' => 'sessions#new'
+  get 'logout'=> 'sessions#destroy'
+  post 'login' => 'sessions#create'
+
+  resources :users, only:[:new, :create, :show, :update]
+  resources :user_bookmarks
+  get 'mobile' => 'user_bookmarks#chrome'
+
+  resources :folders
+
+  get 'mobile' => 'user_bookmarks#chrome'
+
+  get 'chrome' => 'user_bookmarks#chrome'
+  post 'chrome_create' => 'user_bookmarks#chrome_create'
+  get 'chrome_saved' => 'user_bookmarks#chrome_saved'
+
+  get 'loggedin' => 'sessions#chrome_logged_in'
+  get 'mlogin' => 'sessions#mlogin'
+  get 'chrome_new' => 'sessions#chrome_new'
+
+
+
+  # get 'search' => 'search#search'
+
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

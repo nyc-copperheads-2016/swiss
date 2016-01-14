@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+
+  "name": "Getting started example",
+  "description": "This extension shows a Google Image search result for the current page",
+  "version": "1.0",
+  "permissions": [
+          "tabs"
+        ],  
+
+  "browser_action": {
+    "default_icon": "icon128.png",
+    "default_popup": "popup.html"
+  },
+  "author": ["Arcangelo Petretta", "Jack Huang", "Ryan Lesson", "Eliza Dunaway" ],
+  "content_scripts": [
+        {
+        "matches": [
+            "http://*/*",
+            "https://*/*"
+            ],
+        "js": ["jquery/jquery.min.js", "jquery/jqueryui.min.js"],
+        "run_at": "document_end"
+        }
+    ]
+  
+}

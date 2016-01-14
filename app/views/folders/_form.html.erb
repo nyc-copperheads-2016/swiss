@@ -1,0 +1,13 @@
+<ul class="inline center">
+
+  <%= form_for @folder do |f| %>
+
+    <li class="inline"><%= f.text_field :name, placeholder: "Folder Name", class: "folder-form-name form-field" %></li>
+
+    <li class="inline"><%= f.collection_select(:id, current_user.folders, :id, :name, {include_blank: true}, class: "form-field") %></li>
+
+    <li class="inline"><%= f.submit %></li>
+
+  <% end %>
+
+</ul>

@@ -1,0 +1,17 @@
+<div class="col-3 user-dash-column-1 user-dash-column">
+
+  <div class="user-profile">
+
+    <%= render 'users/profile' %>
+
+  </div>
+
+  <div class="user-profile-folders">
+
+    <div id="user-profile-new-folder"></div>
+
+    <%= render partial: "folders/user_folders", locals: {user_folders: user_folders} %>
+
+  </div>
+
+</div>

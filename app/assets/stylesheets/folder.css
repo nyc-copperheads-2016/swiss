@@ -1,0 +1,21 @@
+.folder-form-name {
+  width: 35%;
+}
+
+.folder-div {
+  padding: 0 1rem;
+  border-top: 1px solid #f7f7f7;
+  border-bottom: 1px solid #f7f7f7;
+}
+
+.folder-div:hover {
+  background: #fff;
+}
+
+.folder {
+  font-style: bold
+}
+
+.mondify {
+  font-size: .5rem;
+}

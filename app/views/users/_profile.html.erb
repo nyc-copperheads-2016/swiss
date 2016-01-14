@@ -1,0 +1,13 @@
+<h1><%= current_user.first_name %> <%=current_user.last_name%></h1>
+
+<ul class="no-list-style">
+
+  <li>Username: <%= current_user.username %></li>
+
+  <li>Email: <%= current_user.email %></li>
+
+  <li>Current Folders: <%= current_user.folders.count %></li>
+
+  <li>Current Bookmarks: <%= current_user.bookmarks.count %></li>
+
+</ul>

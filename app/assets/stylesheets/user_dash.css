@@ -1,0 +1,63 @@
+.user-dash-nav-tab-text {
+   padding: 1.25rem 0;
+}
+
+.user-dash-nav-tab {
+  background: #5288CE;
+  border: 1px solid #76a3db;
+  height: 3.5rem;
+}
+
+.tab-icon {
+  width: 50%;
+  margin-top: .2rem;
+}
+
+.user-profile {
+  padding: 1rem;
+}
+
+.user-profile-folders {
+  background: #EBEFF8;
+}
+
+.user-dash-column {
+  border: 1px solid #E7E7E9;
+  overflow: scroll;
+  height: 80vh;
+}
+
+.bookmark {
+  padding: 1rem;
+  border-top: 1px solid #E7E7E9;
+  border-bottom: 1px solid #E7E7E9;
+  word-wrap: break-word;
+  font-size: .75rem;
+}
+
+.bookmark:hover {
+  background: #EBEFF8;
+}
+
+
+#modular-user-nav-tab {
+  margin: 0;
+  padding: .2rem;
+}
+
+
+.bookmark-uploader-label {
+  margin-right: 1rem;
+}
+
+.user-dash-bookmark-meta-display {
+  padding: 1rem;
+}
+
+.bookmark-meta-name {
+  font-size: 1rem;
+}
+
+.bookmark-meta-url {
+  font-size: .75rem;
+}

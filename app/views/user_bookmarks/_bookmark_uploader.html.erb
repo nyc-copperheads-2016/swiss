@@ -1,0 +1,13 @@
+<ul class="no-list-style">
+
+  <%=form_for @user do |f|%>
+
+    <li class="inline"><%= f.label :bookmark_file, class: "bookmark-uploader-label" %></li>
+
+    <li class="inline"><%= f.file_field :bookmark_file, class: "white" %></li>
+
+    <li class="inline"><%= f.submit 'Upload' %></li>
+
+  <%end%>
+
+</ul>

@@ -1,0 +1,23 @@
+<div class="static-width">
+
+  <div class="col-12">
+
+    <div class="row center">
+
+      <%= render 'user_dash_nav' %>
+
+    </div>
+
+    <div class="row">
+
+      <%= render partial: 'col_1', locals: {user_folders: @user_folders} %>
+
+      <%= render partial: 'col_2', locals: {user_bookmarks: @user_bookmarks} %>
+
+      <%= render 'col_3' %>
+
+    </div>
+
+  </div>
+
+</div>

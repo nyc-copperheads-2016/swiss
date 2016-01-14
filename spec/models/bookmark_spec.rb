@@ -14,5 +14,10 @@ RSpec.describe Bookmark, type: :model do
     bookmark2 = Bookmark.create(url: "https://www.facebook.com", content: "content")
     expect(bookmark2).not_to be_valid
   end
+
+  it "is invalid without a properly formatted url" do
+    bookmark2 = Bookmark.create(url: "https://www.facebook", content: "content")
+    expect(bookmark2).not_to be_valid
+  end
   
 end

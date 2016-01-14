@@ -1,0 +1,6 @@
+postgresql:
+  adapter: postgresql
+  database: ancestry_test
+  username: ancestry
+  password: ancestry
+  min_messages: WARNING

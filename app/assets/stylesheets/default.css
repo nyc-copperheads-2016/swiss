@@ -62,10 +62,10 @@ default
   visibility: hidden;
 }
 
-.static-width {
+/*.static-width {
   margin: auto;
-  max-width: 1300px;
-}
+  max-width: 1920px;
+}*/
 
 .button {
   background: none;

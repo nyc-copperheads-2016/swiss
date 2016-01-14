@@ -14,13 +14,17 @@
         <div class="col-10 col-offset-1">
           <div class="static-width">
             <div class="col-5 header-links">
-              <%= link_to "Dashboard", user_bookmarks_path, class: "link white" %>
+              <% if logged_in? %>
+                <%= link_to "Dashboard", user_bookmarks_path, class: "link white" %>
+              <% end %>
             </div>
             <div class="col-2 center">
               <h1><%= link_to (image_tag("logo.png", class: "logo")), root_path, class: "link white" %></h1>
             </div>
             <div class="col-5 header-links right link white">
-              <%= link_to "Logout", logout_path, class: "link white" %>
+              <% if logged_in? %>
+                <%= link_to "Logout", logout_path, class: "link white" %>
+              <% end %>
             </div>
           </div>
         </div>

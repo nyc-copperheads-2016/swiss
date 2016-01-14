@@ -1,6 +1,6 @@
 <div class="row static-width">
   <div class="col-4 col-offset-4 center">
-    <nav>
+    <nav class="login-logout">
       <ul class="no-list-style">
         <% if logged_in? %>
           <li class="inline">Welcome back <%= link_to current_user.username, user_bookmarks_path %>!</li>

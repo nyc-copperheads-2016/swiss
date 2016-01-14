@@ -73,7 +73,7 @@ html, body {
 }
 
 .main-content {
-  /*height: 100vh;*/
+  height: 92vh;
 }
 
 .dev-bio {
@@ -89,6 +89,10 @@ html, body {
 
 .dev-photo {
   width: 70%;
+}
+
+.login-logout {
+  margin-top: 5rem;
 }
 
 /********************

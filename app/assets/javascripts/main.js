@@ -175,7 +175,7 @@ function getRegistration () {
     method: "GET",
     url: "/users/new",
   }).done(function(response) {
-    $('#login_register').html(response);
+    $('#ajax').html(response);
       }).fail(function(error) {
         console.log("Error: " + error);
         });

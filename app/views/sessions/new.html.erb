@@ -6,7 +6,7 @@
           <li class="inline">Welcome back <%= link_to current_user.username, user_bookmarks_path %>!</li>
           <li class="inline"><%= link_to 'Log out', logout_path, class: "link" %></li>
         <% else %>
-          <li class="inline"><%= link_to 'Join ', new_user_path, class: "link" %></li>
+          <li class="inline"><%= link_to 'Join ', new_user_path, class: "link", id: "register"%></li>
           <li class="inline"> | </li>
           <li class="inline"><%= link_to ' Log In', login_path, class: "link" %></li>
         <% end %>
@@ -16,7 +16,7 @@
 </div>
 
 <div class="static-width">
-  <div class="col-4 col-offset-4 center login-registration-form" id="login_register">
+  <div class="col-4 col-offset-4 center login-registration-form">
     <%= render 'form' %>
   </div>
 </div>

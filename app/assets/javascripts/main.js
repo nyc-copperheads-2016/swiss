@@ -135,13 +135,11 @@ function editFolder(){
 function newBookmarkForm() {
   $('#user-dash-new-bookmark').on("click", function(event) {
     event.preventDefault();
-    console.log(event);
 
     $.ajax({
       method: "GET",
       url: "/user_bookmarks/new"
     }).then(function(result) {
-      console.log(result);
       var newBookmarkForm = $(result).find('#new-bookmark').html();
       $('#modular-user-nav-tab').html(newBookmarkForm);
     });
@@ -155,7 +153,7 @@ function doneTyping () {
     url: "/",
     data: {q: $('#search-field').val()}
   }).then(function(result) {
-    var returned = $(result).find('#search-results').html();
+    var returned = $(result).filter('#search-results').html();
     $('#search-results').html(returned);
 
     $("*#search-result-link").each(function() {
@@ -192,6 +190,7 @@ $(document).ready(function() {
   newBookmarkForm();
   editBookmark();
   editFolder();
+
 // search bar logic
   var typingTimer;
   var doneTypingInterval = 0;

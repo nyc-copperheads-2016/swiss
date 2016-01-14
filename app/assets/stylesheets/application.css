@@ -49,6 +49,10 @@ html, body {
   margin-top: 2rem;
 }
 
+.main-content {
+  height: 100vh;
+}
+
 .form-field {
   width: 80%;
   font-size: 1rem;

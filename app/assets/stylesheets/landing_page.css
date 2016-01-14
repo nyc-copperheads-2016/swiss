@@ -11,6 +11,10 @@
   margin: 6rem 0;
 }
 
+.header-links {
+  margin-top: 2rem;
+}
+
 .footer {
   font-size: .75rem;
   background: #111111;

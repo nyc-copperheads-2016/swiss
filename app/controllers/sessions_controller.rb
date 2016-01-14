@@ -1,4 +1,3 @@
-# current params are dependant of how login form will be passing information, review prior to "done"
 class SessionsController < ApplicationController
   skip_before_action :ensure_logged_in
 

@@ -1,11 +1,13 @@
 <form method="POST", id="bookmark_form" action="/user_bookmarks" >
 
   <input name="authenticity_token" value="<%= form_authenticity_token %>", type="hidden" />
+    <p class="chrome-name">Click your username to be taken to your dashboard"</p>
+    <p class="chrome-name">Bookmark Name</p>
 
   <input type="text", id="name", name="user_bookmark[name]", value = "" >
 
     <p>Rename title of bookmark or save as-is by pressing "submit"</p>
-  
+
   <input type="hidden" name="user_bookmark[folder][folder_id]" value="1">
 
 

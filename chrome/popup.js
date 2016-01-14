@@ -52,7 +52,7 @@ return $.get(getLoginLinkPath, function(form) {
     event.preventDefault();
     var newURL = getOpenTabPath;
     chrome.tabs.create({ url: newURL });
-  });  
+  });
 }
 
 function logIn () {
@@ -101,4 +101,3 @@ function postLink (){$("#bookmark_form").on('submit', function() {
       });
   });
 }
-

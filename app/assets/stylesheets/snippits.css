@@ -27,3 +27,11 @@
 .snippit-meta {
   font-size: .75rem;
 }
+
+.snippit-form {
+  width: 80%;
+  font-size: 1rem;
+  margin: .5rem;
+  border-radius: 10px;
+  border: 1px solid #232323;
+}

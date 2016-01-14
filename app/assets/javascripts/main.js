@@ -74,20 +74,17 @@ function renderFolderForm() {
 
 // user dashboard display bookmarks by folder logic
 function displayFolderBookmarks() {
-  $('*#folder-name').each(function() {
-    $(this).on("click", function(event) {
-      event.preventDefault();
-
-      $.ajax({
-        method: "GET",
-        url: $(this).attr('href')
-      }).then(function(result) {
-        var folderContent = $(result).filter('#folder-bookmarks-show').html();
-        $('#user-dash-folder-display').find(folderContent);
-      }).then(function() {
-        bookmarkMouseover();
-        editBookmark();
-      });
+  $(document).on('click', '.folder-name', function(event) {
+    event.preventDefault();
+    $.ajax({
+      method: "GET",
+      url: $(this).attr('href')
+    }).then(function(result) {
+      var folderContent = $(result).find('#folder-bookmarks-show').html();
+      $('#user-dash-folder-display').html(folderContent);
+    }).then(function() {
+      bookmarkMouseover();
+      editBookmark();
     });
   });
 }

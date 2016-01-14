@@ -155,7 +155,7 @@ function doneTyping () {
     url: "/",
     data: {q: $('#search-field').val()}
   }).then(function(result) {
-    var returned = $(result).find('#search-results').html();
+    var returned = $(result).filter('#search-results').html();
     $('#search-results').html(returned);
 
     $("*#search-result-link").each(function() {

@@ -45,8 +45,8 @@ html, body {
   background: #fff;
 }
 
-.main-content {
-  margin-top: 1rem;
+.header-links {
+  margin-top: 2rem;
 }
 
 .form-field {
@@ -69,7 +69,7 @@ html, body {
 }
 
 .main-content {
-  height: 100vh;
+  /*height: 100vh;*/
 }
 
 .dev-bio {

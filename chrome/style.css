@@ -16,6 +16,10 @@ body {
   font-size: 2rem;
 }
 
+.bigger-field {
+  width: 70%;
+}
+
 .form-field {
   border-radius: 10px;
   border: 1px solid #232323;

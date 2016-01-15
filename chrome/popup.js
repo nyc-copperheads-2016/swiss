@@ -15,10 +15,8 @@ $.get(getSessionPath, function(data) {
     } else {
       console.log("hi");
       sessionStorage.clear();
-      getLogin().then(function(){
         getHeader();
         logIn();
-      });
     }
   });
 }

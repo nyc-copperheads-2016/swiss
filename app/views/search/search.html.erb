@@ -4,7 +4,7 @@
         <ul class="no-list-style">
           <% if logged_in? %>
             <li class="inline welcome-banner">Welcome Back <%= link_to current_user.username.capitalize, user_bookmarks_path, class: "link" %>! </li>
-            <li class="inline welcome-banner"><%= link_to 'Log out', logout_path, class: "link" %></li>
+            <li class="inline welcome-banner"><%= link_to 'Logout', logout_path, class: "link" %></li>
           <% else %>
             <li class="inline welcome-banner"><%= link_to 'Join ', new_user_path, class: "link" %></li>
             <li class="inline welcome-banner"> | </li>

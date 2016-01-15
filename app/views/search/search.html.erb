@@ -26,6 +26,8 @@
   <% if @search_results %>
     <div id="search-results" class="row col-6 col-offset-3 search-results no-padding">
       <% @search_results.each do |bookmark| %>
+        <% user_bookmark = current_user.user_bookmarks.find_by(bookmark: bookmark) %>
+        <% if user_bookmark %>
         <div class="row">
           <div class="col-10">
             <%= link_to current_user.user_bookmarks.find_by(bookmark: bookmark).name, bookmark.url, class: "link white search-result" %>
@@ -34,6 +36,7 @@
             <%= link_to "preview", bookmark.url, id: "search-result-link", class: "link white search-result" %>
           </div>
         </div>
+        <% end %>
       <% end %>
     </div>
   <% else %>

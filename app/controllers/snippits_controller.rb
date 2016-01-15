@@ -10,10 +10,10 @@ class SnippitsController < ApplicationController
     user_bookmark = UserBookmark.find(params[:user_bookmark_id])
     @snippit = user_bookmark.snippits.build(snippit_params)
     if @snippit.save
-      flash[:notice] = "Snippit Successfully Created"
+      flash[:notice] = "Snippet Successfully Created"
       redirect_to user_bookmarks_path
     else
-      flash[:error] = "Unable to Create Snippit"
+      flash[:error] = "Unable to Create Snippet"
       render 'new'
     end
   end
@@ -30,10 +30,10 @@ class SnippitsController < ApplicationController
   def update
     @snippit = Snippit.find_by(id: params[:id])
     if @snippit.update(snippit_params)
-      flash[:notice] = "Snippit Successfully Updated"
+      flash[:notice] = "Snippet Successfully Updated"
       redirect_to user_bookmarks_path
     else
-      flash[:error] = "Unable to Update Snippit"
+      flash[:error] = "Unable to Update Snippet"
       render 'edit'
     end
   end

@@ -4,12 +4,12 @@
       <li><h1 class="bookmark-meta-name">Name: <%= @user_bookmark.name %></h1><li>
       <li><p class="bookmark-meta-url">URL: <%= @user_bookmark.bookmark.url %></p></li>
       <li><p class="bookmark-meta-folder">Folder: <%= @user_bookmark.folder.name %></p></li>
-      <li><p class="bookmark-meta-folder">Snippits: <%= @user_bookmark.snippits.count %></p></li>
+      <li><p class="bookmark-meta-folder">Snippets: <%= @user_bookmark.snippits.count %></p></li>
     </ul>
   </div>
   <div id="snippits-container" class="snippits-container">
     <div class="center add-snippit">
-      <%= link_to "Add Snippit", new_user_bookmark_snippit_path(@user_bookmark), id: "new-snippit", class: "link" %>
+      <%= link_to "Add Snippet", new_user_bookmark_snippit_path(@user_bookmark), id: "new-snippit", class: "link" %>
     </div>
     <% @user_bookmark.snippits.each do |snippit| %>
       <div class="snippit-div">

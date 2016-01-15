@@ -2,6 +2,6 @@
   <ul class="no-list-style center">
     <li class="inline center"><%= f.text_field :name, required: true, placeholder: "Name", class: "snippit-name snippit-form center" %></li>
     <li class="inline"><%= f.text_area :content, required: true, class: "snippit-form snippit-content" %></li>
-    <li class="inline"><%= f.submit %></li>
+    <li class="inline"><%= submit_tag "Snippet" %></li>
   </ul>
 <% end %>

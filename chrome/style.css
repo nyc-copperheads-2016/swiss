@@ -6,6 +6,16 @@ body {
   color: #fff;
 }
 
+.login {
+  font-family: Helvetica;
+  font-weight: lighter;
+}
+.chrome_logo {
+  width:23%;
+  height: auto;
+  margin-top: 10px;
+}
+
 .chrome-link {
   color: #fff;
   font-size: 1rem;

@@ -1,44 +1,34 @@
-var getSessionPath = "http://swissdbc.herokuapp.com/loggedin";
-var postLoginPath = 'http://swissdbc.herokuapp.com/login';
-var getLoginFormPath = 'http://swissdbc.herokuapp.com/chrome_new';
-var getOpenTabPath = "http://swissdbc.herokuapp.com/user_bookmarks";
-var getUrlNamePath =  "http://swissdbc.herokuapp.com/chrome";
-var postBookmarkPath = 'http://swissdbc.herokuapp.com/chrome_create';
-var getLoginLinkPath = "http://swissdbc.herokuapp.com/mlogin";
+var getSessionPath = "http://localhost:3000/loggedin";
+var postLoginPath = 'http://localhost:3000/login';
+var getLoginFormPath = 'http://localhost:3000/chrome_new';
+var getOpenTabPath = 'http://localhost:3000/user_bookmarks';
+var getUrlNamePath =  "http://localhost:3000/chrome";
+var postBookmarkPath = 'http://localhost:3000/chrome_create';
+var getLoginLinkPath = "http://localhost:3000/mlogin";
 
 function loggedIn() {
 $.get(getSessionPath, function(data) {
    if (data) {
-     sessionStorage.loggedIn = true ;
+     sessionStorage.loggedIn = true;
      console.log("User is logged in");
-     setFormVals().then(function(){postLink(data)});
+     setFormVals().then(function(){postLink(data);});
     } else {
       console.log("hi");
       sessionStorage.clear();
-      getLogin().then(function(){
         getHeader();
         logIn();
-      });
     }
   });
 }
 
 $(document).ready(function(){
 loggedIn();
-})
+});
 
 function getHeader(){
-  return $("#chrome_login a").on('click', function() {
-    event.preventDefault();
-    $.ajax({
-      url: getLoginFormPath,
-      method: 'GET'
-    }).done(function(response){
+  $.get( getLoginFormPath, function (response){
       $('#body').html(response);
-    }).fail(function(error) {
-      console.log("Error: " + error);
-      });
-  });
+    });
 }
 
 function getLogin(){

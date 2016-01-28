@@ -23,6 +23,11 @@ mobile-first
   /*border: 1px solid #000;*/
 }
 
+.chrome_logo {
+  width:15%;
+  height: auto;
+}
+
 [class*="col-"] {
   width: 100%;
 }

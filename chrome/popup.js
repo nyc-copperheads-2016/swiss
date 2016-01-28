@@ -1,10 +1,10 @@
-var getSessionPath = "http://localhost:3000/loggedin";
-var postLoginPath = 'http://localhost:3000/login';
-var getLoginFormPath = 'http://localhost:3000/chrome_new';
-var getOpenTabPath = 'http://localhost:3000/user_bookmarks';
-var getUrlNamePath =  "http://localhost:3000/chrome";
-var postBookmarkPath = 'http://localhost:3000/chrome_create';
-var getLoginLinkPath = "http://localhost:3000/mlogin";
+var getSessionPath = "http://swissdbc.herokuapp.com/loggedin";
+var postLoginPath = 'http://swissdbc.herokuapp.com/login';
+var getLoginFormPath = 'http://swissdbc.herokuapp.com/chrome_new';
+var getOpenTabPath = 'http://swissdbc.herokuapp.com/user_bookmarks';
+var getUrlNamePath =  "http://swissdbc.herokuapp.com/chrome";
+var postBookmarkPath = 'http://swissdbc.herokuapp.com/chrome_create';
+var getLoginLinkPath = "http://swissdbc.herokuapp.com/mlogin";
 
 function loggedIn() {
 $.get(getSessionPath, function(data) {
